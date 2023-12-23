@@ -1,0 +1,29 @@
+.headerContainer{
+  @include whSize(100vw, auto);
+  @include flexCenter(center,center);
+  position: relative;
+  position: relative;
+  flex-direction: column;
+  @include paddingHorizontal(10%,10%);
+  @include paddingVertical(5%,5%);
+
+  & .svg-bg{
+    align-self: flex-end;
+    @include whSize(58.9rem, 53.8rem);
+  }
+
+  & .nameArea{
+    position: absolute;
+
+    & .nameSize{
+      font-size: 12rem;
+      font-weight: 700;
+
+      &.light-color{
+        background: linear-gradient(to bottom, $color-light-purple, $color-purple-second);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
+  }
+}

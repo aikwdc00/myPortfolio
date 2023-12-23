@@ -1,0 +1,49 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+/*
+  This defines what 1rem is
+  1 rem = 10px; 10px/16px = 62.5%
+*/ 
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+.paddingHorizontal {
+  @include paddingHorizontal(5rem,5rem);
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.light-color {
+  color:$color-dark;
+}
+
+.light-bg {
+  background-color:$color-white;
+}
+
+.dark-color {
+  color:$color-white;
+}
+
+.dark-bg {
+  background-color:$color-dark;
+}
+
+.dark-bg-second {
+  background-color:$color-dark-second;
+}
+
+.dark-bg-third {
+  background-color:$color-gray-second;
+}

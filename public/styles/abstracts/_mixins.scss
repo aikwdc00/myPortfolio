@@ -1,0 +1,100 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+
+  // @if $breakpoint == phone {
+  //     @media only screen and (max-width: 37.5em) { @content };    //600px
+  // }
+  // @if $breakpoint == tab-port {
+  //     @media only screen and (max-width: 56.25em) { @content };     //900px
+  // }
+  // @if $breakpoint == tab-land {
+  //     @media only screen and (max-width: 75em) { @content };    //1200px
+  // }
+  // @if $breakpoint == big-desktop {
+  //     @media only screen and (min-width: 112.5em) { @content };    //1800
+  // }
+}
+
+@mixin flexCenter($x:center,$y:center){
+    display: flex;
+    justify-content: $x;
+    align-items: $y;
+}
+
+@mixin button-style($text-color, $bg-color) {
+  color: $text-color;
+  background-color: $bg-color;
+  padding: 1rem 2rem;
+  border: 0.1rem solid $bg-color;
+  border-radius: 0.5rem;
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}
+
+@mixin card-style($bg-color:$color-white, $border-color:#ccc) {
+  background-color: $bg-color;
+  border: 0.1rem solid $border-color;
+  border-radius: 0.4rem;
+  padding: 2rem;
+  @include boxShadow(0px, 0.2rem, 0.4rem, 0px, rgba(0, 0, 0, 0.1));
+}
+
+@mixin boxShadow($x,$y,$xe,$ye,$color){
+  // box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: $x $y $xe $ye $color;
+}
+
+@mixin whSize($w:100%,$h:'auto'){
+  width:$w;
+  height:$h;
+}
+
+@mixin border-style($size, $style, $color){
+  border: $size $style $color;
+}
+
+@mixin paddingHorizontal($left:2rem, $right:2rem) {
+  padding-left: $left;
+  padding-right: $right;
+}
+
+@mixin paddingVertical($top:3rem, $bottom:3rem) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
