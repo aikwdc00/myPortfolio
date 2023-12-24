@@ -1,16 +1,17 @@
 import React from 'react'
+import {motion} from 'framer-motion'
 
 function CustomButton(props) {
   const {styleName,children,disabled, onClick } = props
+
   return (
-    <button 
-      // className={styleName} 
-      // disabled={disabled} 
-      // onClick={onClick} 
+    <motion.button 
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
       {...props}
       >
       {children}
-    </button>
+    </motion.button>
   )
 }
 

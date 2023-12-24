@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from "react-router-dom";
 import Nav from "./Nav";
-function index() {
+function RootLayout() {
 
   const handleContextMenu = (e) => {
     e.preventDefault(); // Prevent the default right-click context menu
@@ -16,4 +16,4 @@ function index() {
   )
 }
 
-export default index
+export default React.memo(RootLayout)

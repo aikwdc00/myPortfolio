@@ -10,17 +10,7 @@ import ThemeButton from './components/ThemeButton';
 function DesktopNav(props) {
   const navigate = useNavigate();
 
-  const {navs} = props
-
-  const handleDownload = () => {
-    // 创建一个虚拟链接
-    const link = document.createElement('a');
-    // 设置链接的属性，包括文件名和下载链接
-    link.href = '/public/doc/Fu_Ting_Li_Resume.pdf'; // 替换为你的文件路径
-    link.download = 'Fu_Ting_Li_Resume.pdf'; // 替换为你的文件名
-    // 模拟点击链接进行下载
-    link.click();
-  };
+  const {navs,onDownload} = props
 
   const renderNavs = navs.map((nav,index) => (
       <NavLink
@@ -39,7 +29,7 @@ function DesktopNav(props) {
   ))
 
   return (
-    <div className='navContainer'>
+    <div className='navContainer desktopNav'>
       <CustomImage 
         src={`logo/logo.png`}
         alt={`Logo`}
@@ -60,7 +50,7 @@ function DesktopNav(props) {
         {/* download resume */}
         <CustomButton 
           className='Resume-btn'
-          onClick={handleDownload}
+          onClick={onDownload}
         >
           <span className={`Resume-btn-text dark-color`}>Resume</span>
         </CustomButton>

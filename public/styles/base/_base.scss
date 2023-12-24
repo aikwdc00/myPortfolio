@@ -18,6 +18,10 @@ html {
 
 .paddingHorizontal {
   @include paddingHorizontal(5rem,5rem);
+
+  @include respond($bp-small){
+    @include paddingHorizontal(2rem,2rem);
+  }
 }
 
 body {

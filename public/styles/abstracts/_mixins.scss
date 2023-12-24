@@ -98,3 +98,13 @@ ORDER: Base + typography > general layout + grid > page layout > components
   padding-top: $top;
   padding-bottom: $bottom;
 }
+
+@mixin marginHorizontal($left:2rem, $right:2rem) {
+  margin-left: $left;
+  margin-right: $right;
+}
+
+@mixin marginVertical($top:3rem, $bottom:3rem) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
