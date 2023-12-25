@@ -28,6 +28,12 @@ body {
   box-sizing: border-box;
 }
 
+.sectionArea{
+  @include flexCenter(center,center);
+  @include paddingHorizontal(8%,8%);
+  @include paddingVertical(5%,6%);
+}
+
 .light-color {
   color:$color-dark;
 }
@@ -50,4 +56,8 @@ body {
 
 .dark-bg-third {
   background-color:$color-gray-second;
+}
+
+.dark-bg-fourth {
+  background-color:$color-dark-third;
 }

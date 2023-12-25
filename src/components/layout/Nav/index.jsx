@@ -1,4 +1,9 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
+import { NavLink, useNavigate,useLocation } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { motion, useScroll, useMotionValueEvent} from "framer-motion"
+
+// components
 import DesktopNav from './desktop'
 import MobileNav from './mobile'
 
@@ -36,6 +41,35 @@ const Navs = [
 ]
 
 function NavIndex() {
+  const toggleTheme = useSelector(state => state.theme);
+  const { scrollY,scrollYProgress } = useScroll();
+  const [navBg, setNavBg] = useState(null);
+  
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    // console.log("Page scroll: ", latest)
+    if(latest > 100){
+      setNavBg(true)
+    }else{
+      setNavBg(false)
+    }
+  })
+
+  // scroll handler
+  const location = useLocation();
+  const { pathname, hash } = location;
+  useEffect(() => {
+    if (hash === '') {
+      window.scrollTo(0, 0);
+    } else {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView();
+        }
+      }, 0);
+    }
+  }, [pathname, hash]); 
 
   const handleDownload = () => {
     // 创建一个虚拟链接
@@ -49,12 +83,16 @@ function NavIndex() {
 
   return (
     <>
-      <div className='navContainer paddingHorizontal dark-bg-second'>
+      <div
+        className={`paddingHorizontal navContainer ${
+          navBg ? `backFilter` : `${toggleTheme?.currentTheme}-bg-third`
+        }`}
+      >
         <DesktopNav navs={Navs} onDownload={handleDownload} />
         <MobileNav navs={Navs} onDownload={handleDownload} />
       </div>
     </>
-  )
+  );
 }
 
 export default React.memo(NavIndex)

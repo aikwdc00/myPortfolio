@@ -1,19 +1,22 @@
 .headerContainer{
   @include whSize(100vw, auto);
-  @include flexCenter(center,center);
-  position: relative;
+  @include marginHorizontal(auto,auto);
   position: relative;
   flex-direction: column;
-  @include paddingHorizontal(10%,10%);
-  @include paddingVertical(5%,5%);
+  max-width: $maxWight;
 
   & .svg-bg{
     align-self: flex-end;
-    @include whSize(58.9rem, 53.8rem);
+    // @include whSize(58.9rem, 53.8rem);
+    @include whSize(calc(60% - 4rem), calc(55% - 4rem));
+    @include paddingHorizontal(3%,0%);
   }
 
   & .nameArea{
     position: absolute;
+    @include flexCenter(center,center);
+    flex-direction: column;
+    @include paddingVertical(0,5rem);
 
     & .nameSize{
       font-size: 12rem;
@@ -24,6 +27,21 @@
         -webkit-background-clip: text;
         color: transparent;
       }
+    }
+
+    &-description{
+      font-size: 2.4rem;
+    }
+
+    &-Contacts{
+      @include flexCenter(center,center);
+      flex-direction: row;
+      @include paddingVertical(2rem,0);
+
+      &-Link{
+        @include paddingHorizontal(1rem,1rem);
+      }
+
     }
   }
 }

@@ -1,32 +1,37 @@
-import React from 'react'
-import { NavLink, useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from 'react'
+import { NavLink, useNavigate,useLocation } from "react-router-dom";
+
+import { motion, useScroll, useMotionValueEvent} from "framer-motion"
 
 // components
 import CustomImage from '@components/CustomImage';
 import CustomButton from "@components/CustomButton";
-
 import ThemeButton from './components/ThemeButton';
 
 function DesktopNav(props) {
-  const navigate = useNavigate();
-
   const {navs,onDownload} = props
+  const { scrollY,scrollYProgress } = useScroll();
+  
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    console.log("Page scroll: ", latest)
+  })
 
-  const renderNavs = navs.map((nav,index) => (
-      <NavLink
-        key={index}
-        to={nav.path}
-        style={{color: 'white'}}
-        className={({ isActive, isPending }) =>
-          isPending ? "pending"
-            : isActive ? `${nav.class} ${nav.class}-active`
-            : `${nav.class}`
-        }
-        // onClick={() => setToggleDeskMenu(false)}
-      >
-        {`<${nav.name}>`}
-      </NavLink>
-  ))
+  const renderNavs = navs.map((nav, index) => (
+    <NavLink
+      key={index}
+      to={nav.path}
+      style={{ color: "white" }}
+      className={({ isActive, isPending }) =>
+        isPending
+          ? "pending"
+          : isActive
+          ? `${nav.class} ${nav.class}-active`
+          : `${nav.class}`
+      }
+    >
+      {`<${nav.name}>`}
+    </NavLink>
+  ));
 
   return (
     <div className='navContainer desktopNav'>
@@ -38,10 +43,7 @@ function DesktopNav(props) {
         img3={`logo/logo@3x.png`}
       />
 
-      <div>
-        {renderNavs}
-      </div>
-
+      <div>{renderNavs}</div>
 
       <div className='nav-right'>
         {/* theme button */}
