@@ -6,6 +6,7 @@ import {motion} from "framer-motion";
 
 // components
 import CustomImage from "@components/CustomImage";
+import Card from "./components/Card";
 
 // data
 import {workExperiences} from "@Data/workExperiences";
@@ -74,44 +75,8 @@ function WorkExperience() {
           variants={variants}
           viewport={{ once: true }}
         >
-          {workExperiences.map((item, index) => (
-            <motion.div
-              key={index}
-              className={`WeContainer-cards-card ${isDark ? "" : "isDark"}`}
-              variants={contentVariants}
-            >
-              <div>
-                <h3
-                  className={`${currentTheme}-color ${isDark ? "" : "isDark"}`}
-                >
-                  {item.title}
-                </h3>
-                <p className={`${currentTheme}-color`}>{item.description}</p>
-              </div>
-
-              <motion.div
-                className={`WeContainer-cards-card-skills`}
-                initial="offscreen"
-                whileInView="onscreen"
-                variants={cardVariants}
-                viewport={{ once: true }}
-              >
-                {item.skills.map((skill, index) => (
-                  <motion.div variants={contentVariants} key={index}>
-                    <CustomImage
-                      src={`icon/skills/${skill.icon}.png`}
-                      alt={skill.name}
-                      styles={`WeContainer-cards-card-skills-img ${
-                        (!isDark &&["MySQL",'Nodejs'].includes(skill.name)) ? "isDark" : ""
-                      }`}
-                      img2={`icon/skills/${skill.icon}@2x.png`}
-                      img3={`icon/skills/${skill.icon}@3x.png`}
-                    />
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-          ))}
+          {/* card */}
+          {workExperiences.map((item, index) => <Card key={index} item={item} isDark={isDark} variants={variants} contentVariants={contentVariants} currentTheme={currentTheme} />)}
         </motion.div>
 
         {/* work experiences */}

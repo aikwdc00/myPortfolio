@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import { NavLink, useNavigate,useLocation } from "react-router-dom";
+import { NavLink, } from "react-router-dom";
 import { useSelector } from 'react-redux';
-import { motion, useScroll, useMotionValueEvent} from "framer-motion"
 
 // components
 import CustomImage from '@components/CustomImage';
@@ -9,14 +8,9 @@ import CustomButton from "@components/CustomButton";
 import ThemeButton from './components/ThemeButton';
 
 function DesktopNav(props) {
-  const {navs,onDownload,navBg} = props
+  const {navs,onDownload, navBg} = props
   const toggleTheme = useSelector(state => state.theme);
   const {currentTheme} = toggleTheme
-  const { scrollY,scrollYProgress } = useScroll();
-  
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("Page scroll: ", latest)
-  })
 
   const renderNavs = navs.map((nav, index) => (
     <NavLink

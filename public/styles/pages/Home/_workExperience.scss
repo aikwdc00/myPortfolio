@@ -39,7 +39,7 @@
         display: none;
 
         @include respond($bp-large){
-          display: block;
+          display: flex;
         }
       }
 
@@ -68,6 +68,7 @@
             background-color: $color-light-purple;
           }
         }
+
       }
 
       & p{
@@ -86,12 +87,18 @@
           @include marginHorizontal(1rem,1rem);
           @include marginVertical(1rem,1rem);
           // @include whSize(4rem,4rem);
-          max-width: 4rem;
-          max-height: 4rem;
+          max-width: 4.5rem;
+          max-height: 4.5rem;
 
           &.isDark{
             background-color: $color-dark-second;
             border-radius: 50%;
+          }
+
+          &.isLight{
+            background-color: $color-white;
+            border-radius: 50%;
+            @include whSize(4rem,4rem);
           }
         }
       }

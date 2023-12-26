@@ -1,0 +1,32 @@
+.top-btn{
+  @include whSize(7rem,7rem);
+  @include flexCenter(center,center);
+  cursor: pointer;
+  position: fixed;
+  bottom: 10rem;
+  right: 5rem;
+  z-index: 1;
+  background-color: $color-purple;
+  color: $color-white;
+  border-radius: 50%;
+  padding: 1rem;
+  border: 0.1rem solid $color-purple;
+  box-shadow: 0px 0.2rem 0.4rem 0px rgba(0, 0, 0, 0.3);
+  font-size: 2rem;
+
+  @include respond($bp-large){
+    @include whSize(6rem,6rem);
+  }
+
+  @include respond($bp-medium){
+    @include whSize(5rem,5rem);
+    font-size: 1.6rem;
+    bottom: 7rem;
+  }
+
+  @include respond($bp-small){
+    @include whSize(4rem,4rem);
+    font-size: 1.4rem;
+    right: 2rem;
+  }
+}

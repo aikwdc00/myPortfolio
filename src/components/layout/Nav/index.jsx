@@ -40,19 +40,9 @@ const Navs = [
   },
 ]
 
-function NavIndex() {
+function NavIndex(props) {
+  const {navBg} = props
   const toggleTheme = useSelector(state => state.theme);
-  const { scrollY,scrollYProgress } = useScroll();
-  const [navBg, setNavBg] = useState(null);
-  
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    // console.log("Page scroll: ", latest)
-    if(latest > 100){
-      setNavBg(true)
-    }else{
-      setNavBg(false)
-    }
-  })
 
   // scroll handler
   const location = useLocation();
@@ -65,7 +55,10 @@ function NavIndex() {
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: 'center',});
+          const currentScreenWidth = window.innerWidth;
+          const tableScreen = 1080
+          const block = currentScreenWidth > tableScreen ? 'center' : 'start'
+          element.scrollIntoView({ behavior: "smooth", block});
         }
       }, 0);
     }

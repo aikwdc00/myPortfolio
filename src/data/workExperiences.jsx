@@ -35,7 +35,7 @@ export const workExperiences = [
   },
   {
     title: "Front-end Dev React",
-    description: `Familiar with UI/UX Over 4 years of development experience in HTML, CSS, SASS, React, NextJS, React-Native Dev `,
+    description: `Familiar with UI/UX Over 4 years of development experience in HTML, CSS, SASS, React, NextJS, React-Native Dev`,
     skills: [
       {
         name: "HTML5",
@@ -91,7 +91,7 @@ export const workExperiences = [
   },
   {
     title: "App Dev React-Native",
-    description: `Experienced in mobile app development, React-Native, Flutter, Android`,
+    description: `Experienced in mobile app development both Ios and Android platform in React-Native`,
     skills: [
       {
         name: "React-Native",
