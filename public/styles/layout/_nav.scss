@@ -8,7 +8,6 @@
     position: fixed;
     z-index: 1;
     backdrop-filter: blur(5rem);
-    height:100px;
   }
 
   @include respond($bp-medium){
@@ -113,11 +112,12 @@
       overflow: hidden;
 
 
-      // &.open {
-      //   width: 50%;
-      //   background: #fff;
-      //   // transform: translateX(100%);
-      // }
+      &.open {
+        // @include whSize(50%, 100%);
+        // width: 50%;
+        // background: #fff;
+        // transform: translateX(100%);
+      }
 
       // &.closed {
       //   width: 7.5rem;

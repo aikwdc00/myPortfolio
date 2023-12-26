@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { NavLink, useNavigate,useLocation } from "react-router-dom";
-
+import { useSelector } from 'react-redux';
 import { motion, useScroll, useMotionValueEvent} from "framer-motion"
 
 // components
@@ -9,7 +9,9 @@ import CustomButton from "@components/CustomButton";
 import ThemeButton from './components/ThemeButton';
 
 function DesktopNav(props) {
-  const {navs,onDownload} = props
+  const {navs,onDownload,navBg} = props
+  const toggleTheme = useSelector(state => state.theme);
+  const {currentTheme} = toggleTheme
   const { scrollY,scrollYProgress } = useScroll();
   
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -20,13 +22,12 @@ function DesktopNav(props) {
     <NavLink
       key={index}
       to={nav.path}
-      style={{ color: "white" }}
       className={({ isActive, isPending }) =>
         isPending
           ? "pending"
           : isActive
-          ? `${nav.class} ${nav.class}-active`
-          : `${nav.class}`
+          ? `${nav.class} ${nav.class}-active ${currentTheme}-color`
+          : `${nav.class} ${currentTheme}-color`
       }
     >
       {`<${nav.name}>`}
@@ -34,7 +35,7 @@ function DesktopNav(props) {
   ));
 
   return (
-    <div className='navContainer desktopNav'>
+    <div className={`navContainer desktopNav`}>
       <CustomImage 
         src={`logo/logo.png`}
         alt={`Logo`}

@@ -4,7 +4,8 @@ import { motion,AnimatePresence } from "framer-motion";
 
 // components
 import Header from './header'
-import About from './about'
+import About from './About'
+import WorkExperience from './WorkExperience';
 
 
 function Home() {
@@ -19,6 +20,7 @@ function Home() {
       >
         <Header />
         <About />
+        <WorkExperience />
       </motion.div>
     </AnimatePresence>
   )

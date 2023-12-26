@@ -31,6 +31,10 @@
 
     &-description{
       font-size: 2.4rem;
+
+      &.light-color{
+        color: $color-light-purple;
+      }
     }
 
     &-Contacts{

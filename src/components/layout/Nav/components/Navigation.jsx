@@ -32,7 +32,7 @@ const buttonVariants = {
 };
 
 export const Navigation = (props) => {
-  const {navs,onDownload, isNavOpen} = props;
+  const {navs,onDownload, isNavOpen,toggleNav} = props;
 
   return (
     <motion.ul 
@@ -41,7 +41,7 @@ export const Navigation = (props) => {
     >
 
       {navs.map((item,index) => (
-        <MenuItem item={item} index={index} key={index} variants={buttonVariants} />
+        <MenuItem item={item} index={index} key={index} variants={buttonVariants} toggleNav={toggleNav} />
       ))}
 
       {/* download resume */}

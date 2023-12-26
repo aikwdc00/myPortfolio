@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
 
-export const MenuItem = ({ item,index,variants }) => {
+export const MenuItem = ({ item,index,variants,toggleNav }) => {
 
   const style = { borderBottom: `2px solid ${colors[index]}` };
 
@@ -24,7 +24,7 @@ export const MenuItem = ({ item,index,variants }) => {
             : isActive ? `${item.class} ${item.class}-active`
             : `${item.class}`
         }
-        // onClick={() => setToggleDeskMenu(false)}
+        onClick={() => toggleNav(false)}
       >
         {`< ${item.name} >`}
       </NavLink>

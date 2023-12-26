@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+
 import { motion } from "framer-motion";
 import { useDimensions } from "./components/use-dimensions";
 import { MenuToggle } from "./components/MenuToggle";
@@ -10,7 +11,7 @@ import CustomImage from "@components/CustomImage";
 import ThemeButton from "./components/ThemeButton";
 
 const sidebar = {
-  open: (height = 1000) => ({
+  open: (height = window.innerHeight) => ({
     clipPath: `circle(${height * 2}px at 40px 40px)`,
     x:  0,
     opacity:1,
@@ -40,6 +41,10 @@ function MobileNav(props) {
   const [isOpen, setIsOpen] = useState(false);
   const { height } = useDimensions(containerRef);
 
+  const toggleNavHandler = (val) => {
+    setIsOpen((prevState) => (prevState = val))
+  }
+
   return (
     <motion.nav
       className="navContainer mobileNav"
@@ -52,7 +57,7 @@ function MobileNav(props) {
         className={`mobileNavBackground ${isOpen ? "open" : "closed"}`}
         variants={sidebar}
       >
-        <Navigation {...props} isNavOpen={isOpen} />
+        <Navigation {...props} isNavOpen={isOpen} toggleNav={toggleNavHandler} />
       </motion.div>
 
       {/* logo */}

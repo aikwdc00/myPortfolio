@@ -40,7 +40,7 @@ function Header() {
       <dir className={`nameArea`}>
         <MyName />
         <p className={`nameArea-description ${currentTheme}-color`}>
-          Software Engineer, Front end & App Developer.
+          Software Engineer, Front-end & App Developer.
         </p>
 
         <div className="nameArea-Contacts">

@@ -1,22 +1,30 @@
 .aboutContainer{
   flex-direction: column;
 
-
-  & h1#about{
-    align-self: flex-start;
-  }
-
   &-description{
     @include whSize(100%,auto);
     @include flexCenter(center,center);
     flex-direction: row;
 
     &-content{
-      @include whSize(50%,auto);
+      @include whSize(40%,auto);
 
       &:first-child{
+        @include whSize(60%,auto);
         align-self: flex-start;
+
+        & h1{
+          font-size: 3.2rem;
+        }
+
+        & p{
+          font-size: 2rem;
+          line-height: 3rem;
+          @include marginVertical(2.5rem,0rem);
+        }
       }
+
+
     }
   }
 }

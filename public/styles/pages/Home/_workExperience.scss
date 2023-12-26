@@ -1,0 +1,102 @@
+.WeContainer{
+  flex-direction: column;
+ 
+  &-cards{
+    @include whSize(100%,auto);
+    @include flexCenter(space-between,center);
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &-card{
+      @include whSize(31%,auto);
+      min-height: 48rem;
+      @include paddingVertical(5rem,5rem);
+      @include paddingHorizontal(3rem,3rem);
+      @include marginHorizontal(1rem,1rem);
+      @include marginVertical(1rem,2rem);
+      @include flexCenter(space-between,center);
+      flex-direction: column;
+      background-color: $color-dark-forth;
+      border-radius: 1rem;
+      box-shadow: 0px 1px 1rem 0.1rem rgba(255, 255, 255, 0.50);
+
+      &.isDark{
+        background-color: $color-white;
+        box-shadow: 0px 1px 1rem 0.1rem rgba(0, 0, 0, 0.50);
+      }
+
+      @include respond($bp-large){
+        @include whSize(47%,auto);
+      }
+
+      @include respond($bp-medium){
+        @include marginHorizontal(0rem,0rem);
+        @include whSize(100%,auto);
+        min-height: 25rem;
+      }
+
+      &:last-child{
+        display: none;
+
+        @include respond($bp-large){
+          display: block;
+        }
+      }
+
+
+      & h3{
+        font-size: 2.8rem;
+        @include marginVertical(0rem,2rem);
+        text-align: center;
+        position: relative;
+        z-index: 1;
+
+        &::after{
+          content: '';
+          display: block;
+          background-color: $color-purple;
+          @include whSize(70%,1.5rem);
+          position: absolute;
+          left:50%;
+          top: 55%;
+          transform: translateX(-50%);
+          z-index: -1;
+        }
+
+        &.isDark{
+          &::after{
+            background-color: $color-light-purple;
+          }
+        }
+      }
+
+      & p{
+        font-size: 2rem;
+        text-align: center;
+        line-height: 3rem;
+      }
+
+      &-skills{
+        @include paddingVertical(5rem,1rem);
+        @include flexCenter(center,center);
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        &-img{
+          @include marginHorizontal(1rem,1rem);
+          @include marginVertical(1rem,1rem);
+          // @include whSize(4rem,4rem);
+          max-width: 4rem;
+          max-height: 4rem;
+
+          &.isDark{
+            background-color: $color-dark-second;
+            border-radius: 50%;
+          }
+        }
+      }
+
+    }
+
+  }
+}
