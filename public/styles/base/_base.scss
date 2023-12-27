@@ -37,6 +37,10 @@ body {
     align-self: flex-start;
     @include marginVertical(0rem,5.4rem);
     font-size: 2.4rem;
+
+    @include respond($bp-small){
+      @include marginVertical(1rem,2rem);
+    }
   }
 }
 

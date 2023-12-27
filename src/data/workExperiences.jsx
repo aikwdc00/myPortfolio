@@ -104,7 +104,7 @@ export const workSkills = [
 
 export const workExperiences = [
   {
-    title: "Mobile Application Developer @ FUNPODIUM Inc.",
+    title: "Mobile Application Developer @FUNPODIUM Inc.",
     duration: "May 2021 - Present",
     location: "Taiwan, Taipei",
     link: "https://www.funpodium.net",
@@ -122,7 +122,7 @@ export const workExperiences = [
     ],
   },
   {
-    title: "Front-end Developer @ Gamma Interactive Inc.",
+    title: "Front-end Developer @Gamma Interactive Inc.",
     duration: "2019 – 2022",
     location: "Philippine, Remote",
     link: "https://giiph.com/index",

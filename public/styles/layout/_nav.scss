@@ -30,6 +30,10 @@
     @include paddingHorizontal(2rem, 2rem);
     font-size: 1.8rem;
     text-decoration: none;
+
+    &:hover{
+      color: $color-light-purple;
+    }
   }
 
 

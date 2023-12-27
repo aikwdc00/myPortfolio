@@ -122,14 +122,32 @@
         border-radius: 1.5rem;
         cursor: pointer;
 
+        @include respond($bp-small){
+          flex-direction: column;
+          @include paddingHorizontal(1.5rem,1rem);
+        }
+
         & h4{
           font-size: 2rem;
           font-weight: 700;
           line-height: 3rem;
+
+          @include respond($bp-medium){
+            font-size: 1.6rem;
+          }
         }
 
         &-toggleBtn{
           @include flexCenter(center,center);
+
+          @include respond($bp-small){
+            @include whSize(100%,auto);
+            @include flexCenter(space-between,center);
+
+            & h4{
+              align-self: flex-start;
+            }
+          }
 
           &-icon{
             @include flexCenter(center,center);
@@ -153,24 +171,61 @@
           background-color: $color-dark-forth;
         }
         
+        @include respond($bp-medium){
+          flex-direction: column;
+        }
 
+        @include respond($bp-small){
+          @include paddingHorizontal(1.5rem,1.5rem);
+        }
+      
         &-left{
           font-size: 2rem;
-          @include whSize(65%,auto);
+          @include whSize(70%,auto);
+
+          @include respond($bp-medium){
+            @include whSize(100%,auto);
+            font-size: 1.6rem;
+            order:2;
+          }
 
           & .locationAndLink{
             @include whSize(75%,auto);
             @include flexCenter(space-between,center);
             @include paddingVertical(3rem,0rem);
 
-            & a{
-              text-decoration: none;
+            @include respond($bp-medium){
+              @include whSize(85%,auto);
             }
+
+            @include respond($bp-small){
+              flex-direction: column;
+              @include flexCenter(flex-start,flex-start);
+            }
+
+            & .locationWrap{
+              @include flexCenter(flex-start,center);
+              @include marginVertical(0rem,1rem);
+              flex-direction: row;
+
+              & .locationIcon{
+                @include marginHorizontal(0rem,0.5rem);
+                @include whSize(2rem,2rem);
+              }
+              & a{
+                text-decoration: none;
+              }
+            }
+
           }
 
           & .description{
             @include marginVertical(4rem,4rem);
             line-height: 3rem;
+
+            @include respond($bp-small){
+              @include marginVertical(1.5rem,1.5rem);
+            }
           }
 
           & .relational{
@@ -185,14 +240,30 @@
               @include paddingVertical(0.7rem,0.7rem);
               background-color: $color-dark-purple;
               border-radius: 10rem;
+
+              @include respond($bp-small){
+                @include marginHorizontal(0rem,1rem);
+              }
             }
           }
         }
 
         &-right{
+          // @include whSize(30%,auto);
           @include flexCenter(center,center);
+          flex:1;
+
+          @include respond($bp-medium){
+            order:1;
+          }
+
           & .companyLogo{
             @include whSize(40%,auto);
+
+            @include respond($bp-medium){
+              @include whSize(25%,auto);
+            }
+
           }
         }
       }
