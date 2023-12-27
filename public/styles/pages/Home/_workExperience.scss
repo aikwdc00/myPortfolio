@@ -35,6 +35,11 @@
         min-height: 25rem;
       }
 
+      @include respond($bp-small){
+        @include paddingVertical(2.5rem,1.5rem);
+        @include paddingHorizontal(1.5rem,1.5rem);
+      }
+
       &:last-child{
         display: none;
 
@@ -69,12 +74,20 @@
           }
         }
 
+        @include respond($bp-small){
+          font-size: 2rem;
+        }
+
       }
 
       & p{
         font-size: 2rem;
         text-align: center;
         line-height: 3rem;
+
+        @include respond($bp-small){
+          font-size: 1.6rem;
+        }
       }
 
       &-skills{
@@ -98,6 +111,10 @@
             background-color: $color-white;
             border-radius: 50%;
             @include whSize(4rem,4rem);
+          }
+
+          @include respond($bp-small){
+            @include whSize(3rem,3rem);
           }
         }
       }
@@ -243,6 +260,7 @@
 
               @include respond($bp-small){
                 @include marginHorizontal(0rem,1rem);
+                font-size: 1.4rem;
               }
             }
           }

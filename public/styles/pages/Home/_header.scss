@@ -10,6 +10,10 @@
     // @include whSize(58.9rem, 53.8rem);
     @include whSize(calc(60% - 4rem), calc(55% - 4rem));
     @include paddingHorizontal(3%,0%);
+
+    @include respond($bp-small){
+      @include whSize(calc(100%), auto);
+    }
   }
 
   & .nameArea{
@@ -22,6 +26,10 @@
       font-size: 12rem;
       font-weight: 700;
 
+      @include respond($bp-small){
+        font-size: 3.6rem;
+      }
+
       &.light-color{
         background: linear-gradient(to bottom, $color-light-purple, $color-purple-second);
         -webkit-background-clip: text;
@@ -31,6 +39,10 @@
 
     &-description{
       font-size: 2.4rem;
+
+      @include respond($bp-small){
+        font-size: 1.6rem;
+      }
 
       &.light-color{
         color: $color-light-purple;
@@ -44,6 +56,10 @@
 
       &-Link{
         @include paddingHorizontal(1rem,1rem);
+
+        & .socialMedia-img{
+          @include whSize(3rem,3rem);
+        }
       }
 
     }

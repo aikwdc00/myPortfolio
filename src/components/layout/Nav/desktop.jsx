@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { NavLink, } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 // components
@@ -30,13 +30,16 @@ function DesktopNav(props) {
 
   return (
     <div className={`navContainer desktopNav`}>
-      <CustomImage 
-        src={`logo/logo.png`}
-        alt={`Logo`}
-        styles={`nav-logo-img`}
-        img2={`logo/logo@2x.png`}
-        img3={`logo/logo@3x.png`}
-      />
+      <Link to="/" className="nav-logo">
+        <CustomImage 
+          src={`logo/logo.png`}
+          alt={`Logo`}
+          styles={`nav-logo-img`}
+          img2={`logo/logo@2x.png`}
+          img3={`logo/logo@3x.png`}
+        />
+      </Link>
+
 
       <div>{renderNavs}</div>
 

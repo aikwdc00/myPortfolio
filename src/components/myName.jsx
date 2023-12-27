@@ -46,7 +46,7 @@ const item = {
           className={`${toggleTheme.currentTheme}-color nameSize`}
           initial={{opacity:0}}
           animate={{opacity:1}}
-          transition={{ duration: 1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut",delay:text.length*.4 }}
+          transition={{ duration: 1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay:text.length*.4 }}
         >
           _
         </motion.span>

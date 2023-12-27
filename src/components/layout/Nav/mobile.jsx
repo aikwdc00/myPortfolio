@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate,Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
 import { useDimensions } from "./components/use-dimensions";
@@ -61,13 +61,16 @@ function MobileNav(props) {
       </motion.div>
 
       {/* logo */}
-      <CustomImage 
-        src={`logo/logo.png`}
-        alt={`Logo`}
-        styles={`nav-logo-img`}
-        img2={`logo/logo@2x.png`}
-        img3={`logo/logo@3x.png`}
-      />
+      <Link to="/" className="nav-logo">
+        <CustomImage 
+          src={`logo/logo.png`}
+          alt={`Logo`}
+          styles={`nav-logo-img`}
+          img2={`logo/logo@2x.png`}
+          img3={`logo/logo@3x.png`}
+        />
+      </Link>
+
 
       {/* nav */}
       <div className="mobileNav-rightWrap">
