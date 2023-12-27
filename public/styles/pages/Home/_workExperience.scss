@@ -55,7 +55,7 @@
           content: '';
           display: block;
           background-color: $color-purple;
-          @include whSize(70%,1.5rem);
+          @include whSize(90%,1.5rem);
           position: absolute;
           left:50%;
           top: 55%;
@@ -65,7 +65,7 @@
 
         &.isDark{
           &::after{
-            background-color: $color-light-purple;
+            background-color: $color-light-purple-second;
           }
         }
 
@@ -86,7 +86,6 @@
         &-img{
           @include marginHorizontal(1rem,1rem);
           @include marginVertical(1rem,1rem);
-          // @include whSize(4rem,4rem);
           max-width: 4.5rem;
           max-height: 4.5rem;
 
@@ -105,5 +104,90 @@
 
     }
 
+  }
+
+  // experience
+  &-experience{
+    @include paddingVertical(5rem,5rem);
+
+    &-collapse{
+      @include paddingVertical(1rem,1rem);
+
+      &-head{
+        @include paddingVertical(2rem,2rem);
+        @include paddingHorizontal(4rem,3rem);
+        @include flexCenter(space-between,center);
+        flex-direction: row;
+        background: var(--Button-color-01, linear-gradient(180deg, $color-purple 0%, $color-purple-second 100%));
+        border-radius: 1.5rem;
+        cursor: pointer;
+
+        & h4{
+          font-size: 2rem;
+          font-weight: 700;
+          line-height: 3rem;
+        }
+
+        &-toggleBtn{
+          @include flexCenter(center,center);
+
+          &-icon{
+            @include flexCenter(center,center);
+            @include marginHorizontal(3rem,0rem);
+            background-color: $color-white;
+            border-radius: 50%;
+            @include paddingHorizontal(0.7rem,0.7rem);
+            @include paddingVertical(0.7rem,0.7rem);
+          }
+        }
+      }
+
+      &-body{
+        @include marginVertical(2.5rem,0rem);
+        @include paddingVertical(3rem,3rem);
+        @include paddingHorizontal(4rem,3%);
+        border-radius: 1.5rem;
+
+        &.isDark{
+          background-color: $color-dark-forth;
+        }
+        
+
+        &-left{
+          font-size: 2rem;
+          @include whSize(65%,auto);
+
+          & .locationAndLink{
+            @include whSize(75%,auto);
+            @include flexCenter(space-between,center);
+            @include paddingVertical(3rem,0rem);
+
+            & a{
+              text-decoration: none;
+            }
+          }
+
+          & .description{
+            @include marginVertical(4rem,4rem);
+            line-height: 3rem;
+          }
+
+          & .relational{
+            @include flexCenter(flex-start,center);
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            & p{
+              @include marginHorizontal(0rem,2rem);
+              @include marginVertical(1rem,1rem);
+              @include paddingHorizontal(2rem,2rem);
+              @include paddingVertical(0.7rem,0.7rem);
+              background-color: $color-dark-purple;
+              border-radius: 10rem;
+            }
+          }
+        }
+      }
+    }
   }
 }

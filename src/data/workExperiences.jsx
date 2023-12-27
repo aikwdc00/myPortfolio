@@ -1,4 +1,4 @@
-export const workExperiences = [
+export const workSkills = [
   {
     title: "Software Development",
     description: `Experienced in functional: Javascript, Typescript, JQuery, Git, Docker, Webpack, Figma`,
@@ -97,6 +97,45 @@ export const workExperiences = [
         name: "React-Native",
         icon: `React`,
       },
+    ],
+  },
+];
+
+
+export const workExperiences = [
+  {
+    title: "Mobile Application Developer @ FUNPODIUM Inc.",
+    duration: "May 2021 - Present",
+    location: "Taiwan, Taipei",
+    link: "https://www.funpodium.net",
+    description: `Developing front-end and mobile applications solutions (B2C, B2B) in gaming tech on React-Native/Next.js framework. Collaborated closely with cross-functional team members to conceptualize, design, and implement innovative features.`,
+    logo: "FUNPODIUM",
+    relational: [
+      "Javascript",
+      "JQuery",
+      "React",
+      "React-Native",
+      "Redux",
+      "Node.js",
+      "Docker",
+      "Figma",
+    ],
+  },
+  {
+    title: "Front-end Developer @ Gamma Interactive Inc.",
+    duration: "2019 – 2022",
+    location: "Philippine, Remote",
+    link: "https://giiph.com/index",
+    description: `Developed the UI and UX for gaming platforms using modular component structures.`,
+    logo: "GAMMA",
+    relational: [
+      "Javascript",
+      "JQuery",
+      "React",
+      "Next.js",
+      "React-Native",
+      "Redux",
+      "Trello",
     ],
   },
 ];
