@@ -26,6 +26,10 @@
       font-size: 12rem;
       font-weight: 700;
 
+      @include respond($bp-medium){
+        font-size: 6rem;
+      }
+
       @include respond($bp-small){
         font-size: 3.6rem;
       }
@@ -58,7 +62,10 @@
         @include paddingHorizontal(1rem,1rem);
 
         & .socialMedia-img{
-          @include whSize(3rem,3rem);
+          
+          @include respond($bp-small){
+            @include whSize(3rem,3rem);
+          }
         }
       }
 

@@ -6,14 +6,14 @@
     @include flexCenter(center,center);
     flex-direction: row;
 
-    @include respond($bp-small){
+    @include respond($bp-medium){
       flex-direction: column;
     }
 
     &-content{
       @include whSize(40%,auto);
 
-      @include respond($bp-small){
+      @include respond($bp-medium){
          @include whSize(100%,auto);
       }
 
@@ -21,7 +21,7 @@
         @include whSize(60%,auto);
         align-self: flex-start;
 
-        @include respond($bp-small){
+        @include respond($bp-medium){
           @include whSize(100%,auto);
           order:2;
         }
@@ -29,7 +29,7 @@
         & h1{
           font-size: 3.2rem;
 
-          @include respond($bp-small){
+          @include respond($bp-medium){
             font-size: 2rem;
           }
         }
@@ -39,7 +39,7 @@
           line-height: 3rem;
           @include marginVertical(2.5rem,0rem);
 
-          @include respond($bp-small){
+          @include respond($bp-medium){
             font-size: 1.6rem;
           }
         }
@@ -50,7 +50,7 @@
         align-self: flex-end;
         @include marginHorizontal(5rem,0rem);
 
-        @include respond($bp-small){
+        @include respond($bp-medium){
           @include whSize(100%,auto);
           order:1;
         }
