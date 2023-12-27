@@ -3,9 +3,10 @@ import {Link} from "react-router-dom";
 import { useSelector } from "react-redux";
 import useScrollTo from "@customHook/useScrollTo";
 
-import {motion} from "framer-motion";
+import {motion, AnimatePresence} from "framer-motion";
 
 // components
+import CustomImage from "@components/CustomImage";
 import Card from "./components/Card";
 
 // data
@@ -31,6 +32,23 @@ const contentVariants = {
     transition: {
       type: "spring",
       bounce: 0.4,
+      duration: 2,
+      // spring: 400,
+    }
+  }
+};
+
+const skillsVariants = {
+  offscreen: {
+    x: -50,
+    opacity: 0,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.2,
       duration: 2,
       // spring: 400,
     }
@@ -75,7 +93,11 @@ function WorkExperience() {
 
   // 切换状态的函数
   const togglePath = (val) => {
-    setCollapse(val)
+    if(collapse === val) {
+      setCollapse(-1)
+    }else{
+      setCollapse(val)
+    }
   };
 
   return (
@@ -137,54 +159,72 @@ function WorkExperience() {
                   </div>
 
                   {/* body */}
-                  {
-                    collapse === index ? (
-                      <motion.div
-                        className={`WeContainer-experience-collapse-body ${
-                          isDark ? `isDark` : `light-bg`
-                        }`}
-                      >
-                        {/* left */}
-                        <div className={`WeContainer-experience-collapse-body-left`}>
-                          <div className="locationAndLink">
-                            <div className="locationWrap">
-                              <p className={`${currentTheme}-color`}>
-                                {item.location}
-                              </p>
+                  <AnimatePresence mode="wait">
+                    {
+                      collapse === index ? (
+                        <motion.div
+                          key={index}
+                          className={`WeContainer-experience-collapse-body ${
+                            isDark ? `isDark` : `light-bg`
+                          }`}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                        >
+                          {/* left */}
+                          <div className={`WeContainer-experience-collapse-body-left`}>
+                            <div className="locationAndLink">
+                              <div className="locationWrap">
+                                <p className={`${currentTheme}-color`}>
+                                  {item.location}
+                                </p>
+                              </div>
+                              <div className="linkWrap">
+                                <Link 
+                                  className={`${currentTheme}-color`}
+                                  to={item.link}
+                                >
+                                  {item.link}
+                                </Link>
+                              </div>
                             </div>
-                            <div className="linkWrap">
-                              <Link 
-                                className={`${currentTheme}-color`}
-                                to={item.link}
-                              >
-                                {item.link}
-                              </Link>
-                            </div>
+
+                            <p className={`${currentTheme}-color description`}>
+                              {item.description}
+                            </p>
+
+                            <motion.div 
+                              className="relational"
+                              initial="offscreen"
+                              animate="onscreen"
+                              variants={variants}
+                            >
+                              {item.relational.map((rel, ind) => (
+                                <motion.p 
+                                  key={ind} 
+                                  className={`${currentTheme}-color`}
+                                  variants={skillsVariants}
+                                >
+                                  {rel}
+                                </motion.p>
+                              ))}
+                            </motion.div>
                           </div>
 
-                          <p className={`${currentTheme}-color description`}>
-                            {item.description}
-                          </p>
-
-                          <motion.div 
-                            className="relational"
-                          >
-                            {item.relational.map((rel, ind) => (
-                              <p 
-                                key={ind} 
-                                className={`${currentTheme}-color`}
-                              >
-                                {rel}
-                              </p>
-                            ))}
-                          </motion.div>
-                        </div>
-
-                        {/* right */}
-                        <div></div>
-                      </motion.div>
-                    ):null
-                  }
+                          {/* right */}
+                          <div className={`WeContainer-experience-collapse-body-right`}>
+                            <CustomImage
+                              src={`icon/companies/${item.logo}.png`}
+                              alt={item.logo}
+                              styles={`companyLogo`}
+                              img2={`icon/companies/${item.logo}.png`}
+                              img3={`icon/companies/${item.logo}.png`}
+                            />
+                          </div>
+                        </motion.div>
+                      ):null
+                    }
+                  </AnimatePresence>
                 </div>
               );
             })

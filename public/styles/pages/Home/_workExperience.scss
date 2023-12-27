@@ -108,7 +108,7 @@
 
   // experience
   &-experience{
-    @include paddingVertical(5rem,5rem);
+    @include paddingVertical(5rem,0rem);
 
     &-collapse{
       @include paddingVertical(1rem,1rem);
@@ -146,6 +146,7 @@
         @include marginVertical(2.5rem,0rem);
         @include paddingVertical(3rem,3rem);
         @include paddingHorizontal(4rem,3%);
+        @include flexCenter(space-between,center);
         border-radius: 1.5rem;
 
         &.isDark{
@@ -185,6 +186,13 @@
               background-color: $color-dark-purple;
               border-radius: 10rem;
             }
+          }
+        }
+
+        &-right{
+          @include flexCenter(center,center);
+          & .companyLogo{
+            @include whSize(40%,auto);
           }
         }
       }
