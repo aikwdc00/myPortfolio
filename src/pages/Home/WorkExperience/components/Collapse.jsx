@@ -77,7 +77,7 @@ function Collapse(props) {
                   <motion.div
                     key={index}
                     className={`WeContainer-experience-collapse-body ${
-                      isDark ? `isDark` : `light-bg`
+                      isDark ? `isDark` : `light-bg-fourth`
                     }`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
@@ -140,7 +140,7 @@ function Collapse(props) {
                           {item.relational.map((rel, ind) => (
                             <motion.p
                               key={ind}
-                              className={`${currentTheme}-color`}
+                              className={`dark-color ${isDark?`isDark`:`light-bg-linear`}`}
                               variants={skillsVariants}
                             >
                               {rel}

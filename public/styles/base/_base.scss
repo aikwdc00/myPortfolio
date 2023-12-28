@@ -63,7 +63,7 @@ body {
 }
 
 .light-color-second {
-  background: linear-gradient(to bottom, $color-light-purple, $color-purple-second);
+  background: linear-gradient(to bottom, $color-purple, $color-purple-second);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -96,5 +96,14 @@ body {
 }
 
 .dark-bg-fourth {
+  background-color:$color-dark-third;
+}
+
+
+.light-bg-linear{
+  background: linear-gradient(to bottom, $color-purple, $color-purple-second);
+}
+
+.dark-bg-linear{
   background-color:$color-dark-third;
 }

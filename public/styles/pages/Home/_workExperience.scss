@@ -20,11 +20,6 @@
       border-radius: 1rem;
       box-shadow: 0px 1px 1rem 0.1rem rgba(255, 255, 255, 0.50);
 
-      &.isDark{
-        background-color: $color-white;
-        box-shadow: 0px 1px 1rem 0.1rem rgba(0, 0, 0, 0.50);
-      }
-
       @include respond($bp-large){
         @include whSize(47%,auto);
       }
@@ -59,19 +54,13 @@
         &::after{
           content: '';
           display: block;
-          background-color: $color-purple;
+          background-color: $color-dark-purple-second;
           @include whSize(90%,1.5rem);
           position: absolute;
           left:50%;
           top: 55%;
           transform: translateX(-50%);
           z-index: -1;
-        }
-
-        &.isDark{
-          &::after{
-            background-color: $color-light-purple-second;
-          }
         }
 
         @include respond($bp-small){
@@ -257,8 +246,11 @@
               @include marginVertical(1rem,1rem);
               @include paddingHorizontal(2rem,2rem);
               @include paddingVertical(0.7rem,0.7rem);
-              background-color: $color-dark-purple;
               border-radius: 10rem;
+
+              &.isDark{
+                background-color: $color-dark-purple;
+              }
 
               @include respond($bp-small){
                 @include marginHorizontal(0rem,1rem);

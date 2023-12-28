@@ -43,10 +43,10 @@ function About() {
   const { targetRef } = useScrollTo();
 
   return (
-    <div className={`sectionArea aboutContainer ${currentTheme}-bg-fourth`}>
+    <div className={`sectionArea aboutContainer ${currentTheme}-bg-linear`}>
       <div className="section-container">
 
-        <h3 id="about" className={`${currentTheme}-color sectionTitle`} ref={targetRef}>
+        <h3 id="about" className={`dark-color sectionTitle`} ref={targetRef}>
         // ABOUT.
         </h3>
 
@@ -62,7 +62,7 @@ function About() {
             variants={variants}
           >
             <motion.h1 
-              className={`${currentTheme}-color`}
+              className={`dark-color`}
               variants={contentVariants}
             >
               Hi, I’m Fu Ting (Fred). Nice to meet you.
@@ -71,7 +71,7 @@ function About() {
             {description.map((item, index) => (
               <motion.p 
                 key={index} 
-                className={`${currentTheme}-color`}
+                className={`dark-color`}
                 variants={contentVariants}
               >
                 {item}

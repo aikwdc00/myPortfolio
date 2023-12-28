@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { NavLink, useNavigate,Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { motion } from "framer-motion";
 import { useDimensions } from "./components/use-dimensions";
@@ -40,6 +41,9 @@ function MobileNav(props) {
   const containerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const { height } = useDimensions(containerRef);
+  const toggleTheme = useSelector(state => state.theme);
+  
+  const { currentTheme,isDark, } = toggleTheme;
 
   const toggleNavHandler = (val) => {
     setIsOpen((prevState) => (prevState = val))
@@ -54,7 +58,7 @@ function MobileNav(props) {
       ref={containerRef}
     >
       <motion.div
-        className={`mobileNavBackground ${isOpen ? "open" : "closed"}`}
+        className={`mobileNavBackground ${isDark?'isDark':'isLight'} ${isOpen ? "open" : "closed"}`}
         variants={sidebar}
       >
         <Navigation {...props} isNavOpen={isOpen} toggleNav={toggleNavHandler} />

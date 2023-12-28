@@ -110,7 +110,7 @@ function WorkExperience() {
 
         <h3
           id="work-expertise"
-          className={`${currentTheme}-color sectionTitle`}
+          className={`${currentTheme}-color-second sectionTitle`}
           ref={targetRef}
         >
           // WORK EXPERTISE.

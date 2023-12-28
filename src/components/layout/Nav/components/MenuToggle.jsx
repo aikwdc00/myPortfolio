@@ -6,12 +6,14 @@ import { useSelector } from "react-redux";
 import CustomButton from "@components/CustomButton";
 
 const Path = props => {
+  const {isOpen} = props
   const toggleTheme = useSelector(state => state.theme);
+  const { currentTheme,isDark, } = toggleTheme;
   return (
   <motion.path
     fill="transparent"
     strokeWidth="3"
-    stroke={toggleTheme?.isDark?`#fff`:"hsl(0, 0%, 18%)"}
+    stroke={isOpen && !isDark ?`#000`:`#fff`}
     strokeLinecap="round"
     {...props}
   />
@@ -29,6 +31,7 @@ export const MenuToggle = ({ toggle,isOpen }) => (
           closed: { d: "M 2 2.5 L 20 2.5" },
           open: { d: "M 3 16.5 L 17 2.5" }
         }}
+        isOpen={isOpen}
       />
       <Path
         d="M 2 9.423 L 20 9.423"
@@ -37,12 +40,14 @@ export const MenuToggle = ({ toggle,isOpen }) => (
           open: { opacity: 0 }
         }}
         transition={{ duration: 0.1 }}
+        isOpen={isOpen}
       />
       <Path
         variants={{
           closed: { d: "M 2 16.346 L 20 16.346" },
           open: { d: "M 3 2.5 L 17 16.346" }
         }}
+        isOpen={isOpen}
       />
     </svg>
   </CustomButton>

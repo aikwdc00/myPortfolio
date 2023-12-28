@@ -22,11 +22,11 @@ function Contact() {
       className={`nameArea-Contacts-Link`}
     >
       <CustomImage
-        src={`icon/SocialMedia/${item.icon}/${item.icon}.png`}
+        src={`icon/SocialMedia/dark/${item.icon}/${item.icon}.png`}
         alt={`Social Media`}
         styles={`socialMedia-img`}
-        img2={`icon/SocialMedia/${item.icon}/${item.icon}@2x.png`}
-        img3={`icon/SocialMedia/${item.icon}/${item.icon}@3x.png`}
+        img2={`icon/SocialMedia/dark/${item.icon}/${item.icon}@2x.png`}
+        img3={`icon/SocialMedia/dark/${item.icon}/${item.icon}@3x.png`}
       />
     </Link>
   ))
