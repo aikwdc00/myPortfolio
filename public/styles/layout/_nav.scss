@@ -120,19 +120,6 @@
       z-index: 2;
       overflow: hidden;
 
-
-      &.open {
-        // @include whSize(50%, 100%);
-        // width: 50%;
-        // background: #fff;
-        // transform: translateX(100%);
-      }
-
-      // &.closed {
-      //   width: 7.5rem;
-      //   // transform: translateX(-100%);
-      // }
-
       @include respond($bp-small){
         width: 75%;
       }
@@ -147,6 +134,14 @@
           @include paddingHorizontal(3rem, 3rem);
           @include paddingVertical(2rem, 2rem);
         }
+      }
+    }
+
+    & .nav-logo-img{
+      @include whSize(5rem, 5rem);
+
+      @include respond($bp-small){
+        @include whSize(4.5rem, 4.5rem);
       }
     }
 

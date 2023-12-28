@@ -30,4 +30,13 @@
     font-size: 1.4rem;
     right: 2rem;
   }
+
+  & .TopBtn{
+    font-size: 4rem;
+    font-weight: 700;
+
+    @include respond($bp-medium){
+      font-size: 3rem;
+    }
+  }
 }

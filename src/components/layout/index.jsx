@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation,useNavigate } from "react-router-dom";
 import { motion, useScroll, useMotionValueEvent} from "framer-motion"
 
 // components
 import Nav from "./Nav";
+import Footer from "./Footer";
 
+// MUI
+import { VerticalAlignTop } from '@mui/icons-material';
 
 const topVariants = {
   show: {
@@ -32,6 +35,10 @@ function RootLayout() {
   const [navBg, setNavBg] = useState(null);
   const [topBtn, setTopBtn] = useState(null);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { pathname, hash } = location;
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     // console.log("Page scroll: ", latest)
     if(latest > 100){
@@ -47,15 +54,24 @@ function RootLayout() {
     e.preventDefault(); // Prevent the default right-click context menu
   };
 
+  const scrollHandler = () => {
+    if(hash.includes('#')){
+      navigate('/')
+      window.scrollTo({top: 0, behavior: "smooth"})
+    }else{
+      window.scrollTo({top: 0, behavior: "smooth"})
+    }
+  }
+
   return (
     <div onContextMenu={handleContextMenu}>
       <Nav navBg={navBg} />
       <Outlet />
-
+      {/* <Footer /> */}
       {/* top button */}
       <motion.div
         className={`top-btn ${topBtn ? "show" : ""}`}
-        onClick={() => window.scrollTo({top: 0, behavior: "smooth"})}
+        onClick={scrollHandler}
         variants={topVariants}
         initial={`hide`}
         animate={`${topBtn ? "show" : ""}`}
@@ -63,7 +79,7 @@ function RootLayout() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        TOP
+        <VerticalAlignTop className='TopBtn' />
       </motion.div>
     </div>
   )

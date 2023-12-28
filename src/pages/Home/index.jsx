@@ -6,7 +6,7 @@ import { motion,AnimatePresence } from "framer-motion";
 import Header from './header'
 import About from './About'
 import WorkExperience from './WorkExperience';
-
+import Contact from './Contact';
 
 function Home() {
   const toggleTheme = useSelector(state => state.theme);
@@ -21,6 +21,7 @@ function Home() {
         <Header />
         <About />
         <WorkExperience />
+        <Contact />
       </motion.div>
     </AnimatePresence>
   )

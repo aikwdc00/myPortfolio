@@ -11,6 +11,12 @@
     @include whSize(calc(60% - 4rem), calc(55% - 4rem));
     @include paddingHorizontal(3%,0%);
 
+    @include respond($bp-medium){
+      @include whSize(calc(100%), auto);
+      @include paddingHorizontal(0%,0%);
+      align-self: center;
+    }
+
     @include respond($bp-small){
       @include whSize(calc(100%), auto);
     }
@@ -31,7 +37,7 @@
       }
 
       @include respond($bp-small){
-        font-size: 3.6rem;
+        font-size: 4.2rem;
       }
 
       &.light-color{
@@ -69,6 +75,38 @@
         }
       }
 
+    }
+  }
+
+  & .scrollDown{
+    position: absolute;
+    top: 85%;
+    @include border-style(0.2rem,solid,$color-purple);
+    border-radius: 50%;
+    @include paddingHorizontal(0.5rem,0.5rem);
+    @include paddingVertical(0.5rem,0.5rem);
+    @include whSize(5rem,5rem);
+    @include flexCenter(center,center);
+    background-color: transparent;
+
+    &.isDark{
+      @include border-style(0.2rem,solid,$color-white);
+    }
+
+    @include respond($bp-small){
+      @include whSize(3rem,3rem);
+    }
+
+    &-icon{
+      font-size: 4rem;
+
+      &.light-color-second{
+        color: $color-purple;
+      }
+
+      @include respond($bp-small){
+        font-size: 2rem;
+      }
     }
   }
 }

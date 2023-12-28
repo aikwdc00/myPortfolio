@@ -183,6 +183,7 @@
         @include paddingHorizontal(4rem,3%);
         @include flexCenter(space-between,center);
         border-radius: 1.5rem;
+        overflow: hidden;
 
         &.isDark{
           background-color: $color-dark-forth;
@@ -249,6 +250,7 @@
             @include flexCenter(flex-start,center);
             flex-direction: row;
             flex-wrap: wrap;
+            min-height: 11rem;
 
             & p{
               @include marginHorizontal(0rem,2rem);
@@ -267,7 +269,7 @@
         }
 
         &-right{
-          // @include whSize(30%,auto);
+          @include whSize(30%,auto);
           @include flexCenter(center,center);
           flex:1;
 
@@ -279,7 +281,7 @@
             @include whSize(40%,auto);
 
             @include respond($bp-medium){
-              @include whSize(25%,auto);
+              @include whSize(100%,auto);
             }
 
           }

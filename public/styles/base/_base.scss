@@ -33,6 +33,10 @@ body {
   @include paddingHorizontal(8%,8%);
   @include paddingVertical(7%,7%);
 
+  @include respond($bp-small){
+    @include paddingHorizontal(2rem,2rem);
+  }
+
   & h3.sectionTitle{
     align-self: flex-start;
     @include marginVertical(0rem,5.4rem);
@@ -44,17 +48,30 @@ body {
   }
 }
 
+// color for text
 .light-color {
   color:$color-dark-second;
-}
-
-.light-bg {
-  background-color:$color-white;
 }
 
 .dark-color {
   color:$color-white;
 }
+
+.light-color-second {
+  background: linear-gradient(to bottom, $color-light-purple, $color-purple-second);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.dark-color-second {
+  color:$color-white;
+}
+
+// color for background
+.light-bg {
+  background-color:$color-white;
+}
+
 
 .dark-bg {
   background-color:$color-dark;
