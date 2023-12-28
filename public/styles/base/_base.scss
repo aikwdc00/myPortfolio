@@ -48,6 +48,11 @@ body {
   }
 }
 
+.section-container{
+  @include marginHorizontal(auto,auto);
+  max-width: $maxWight;
+}
+
 // color for text
 .light-color {
   color:$color-dark-second;

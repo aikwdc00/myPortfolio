@@ -33,39 +33,44 @@ function Contact() {
 
   return (
     <div className={`sectionArea contact ${currentTheme}-bg-fourth`}>
+      <div className="section-container">
 
-      {/* info */}
-      <div className='contact-container'>
-        <div className='contact-container-detail'>
-          <h3 id='contact' className={`sectionTitle ${currentTheme}-color-second`}>// CONTACT</h3>
-        </div>
-
-        {/* detail */}
-        <div className='contact-container-detail'>
-          <div className='nameWrap'>
-            <CustomImage 
-              src={`logo/logo.png`}
-              alt={`Logo`}
-              styles={`nav-logo-img`}
-              img2={`logo/logo@2x.png`}
-              img3={`logo/logo@3x.png`}
-            />
-            <h4 className={`${currentTheme}-color-second`}>FU TING (FRED) LI</h4>
-          </div>
-          <p className={`positionTitle ${currentTheme}-color`}>Software Engineer, Front end & App Developer.</p>
-
-          {/* contact */}
-          <div className='nameArea-Contacts'>
-            {renderSocialMedias}
+        {/* info */}
+        <div className='contact-container'>
+          <div className='contact-container-detail'>
+            <h3 id='contact' className={`sectionTitle ${currentTheme}-color-second`}>// CONTACT</h3>
           </div>
 
-          <p className={`contactMe ${currentTheme}-color`}>If you are interested in my work experience, please get in touch with me</p>
+          {/* detail */}
+          <div className='contact-container-detail'>
+            <div className='nameWrap'>
+              <CustomImage 
+                src={`logo/logo.png`}
+                alt={`Logo`}
+                styles={`nav-logo-img`}
+                img2={`logo/logo@2x.png`}
+                img3={`logo/logo@3x.png`}
+              />
+              <h4 className={`${currentTheme}-color-second`}>FU TING (FRED) LI</h4>
+            </div>
+            <p className={`positionTitle ${currentTheme}-color`}>Software Engineer, Front end & App Developer.</p>
+
+            {/* contact */}
+            <div className='nameArea-Contacts'>
+              {renderSocialMedias}
+            </div>
+
+            <p className={`contactMe ${currentTheme}-color`}>If you are interested in my work experience, please get in touch with me</p>
+          </div>
         </div>
+        
+        <div className={`copyRightContainer ${isDark? null: `isLight`}`}>
+          <p className={`${currentTheme}-color`}>Copyright © 2023 Fred LI | All Rights Reserved</p>
+        </div>
+
+
       </div>
-      
-      <div className={`copyRightContainer ${isDark? null: `isLight`}`}>
-        <p className={`${currentTheme}-color`}>Copyright © 2023 Fred LI | All Rights Reserved</p>
-      </div>
+
     </div>
   )
 }

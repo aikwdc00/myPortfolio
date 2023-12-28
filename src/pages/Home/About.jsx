@@ -44,41 +44,45 @@ function About() {
 
   return (
     <div className={`sectionArea aboutContainer ${currentTheme}-bg-fourth`}>
-      <h3 id="about" className={`${currentTheme}-color sectionTitle`} ref={targetRef}>
-        // ABOUT.
-      </h3>
-      <motion.div
-        className="aboutContainer-description"
-        initial="offscreen"
-        whileInView="onscreen"    
-        variants={variants}
-        viewport={{ once: true, }}
-      >
-        <motion.div 
-          className="aboutContainer-description-content" 
-          variants={variants}
-        >
-          <motion.h1 
-            className={`${currentTheme}-color`}
-            variants={contentVariants}
-          >
-            Hi, I’m Fu Ting (Fred). Nice to meet you.
-          </motion.h1>
+      <div className="section-container">
 
-          {description.map((item, index) => (
-            <motion.p 
-              key={index} 
+        <h3 id="about" className={`${currentTheme}-color sectionTitle`} ref={targetRef}>
+        // ABOUT.
+        </h3>
+
+        <motion.div
+          className="aboutContainer-description"
+          initial="offscreen"
+          whileInView="onscreen"    
+          variants={variants}
+          viewport={{ once: true, }}
+        >
+          <motion.div 
+            className="aboutContainer-description-content" 
+            variants={variants}
+          >
+            <motion.h1 
               className={`${currentTheme}-color`}
               variants={contentVariants}
             >
-              {item}
-            </motion.p>
-          ))}
-        </motion.div>
+              Hi, I’m Fu Ting (Fred). Nice to meet you.
+            </motion.h1>
 
-        {/* head portrait */}
-        <div className="aboutContainer-description-content"></div>
-      </motion.div>
+            {description.map((item, index) => (
+              <motion.p 
+                key={index} 
+                className={`${currentTheme}-color`}
+                variants={contentVariants}
+              >
+                {item}
+              </motion.p>
+            ))}
+          </motion.div>
+
+          {/* head portrait */}
+          <div className="aboutContainer-description-content"></div>
+        </motion.div>
+      </div>
     </div>
   );
 }
