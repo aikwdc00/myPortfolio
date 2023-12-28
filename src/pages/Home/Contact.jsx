@@ -6,12 +6,33 @@ import { motion } from 'framer-motion'
 // components
 import CustomImage from '@components/CustomImage';
 
+// data
+import {contactData} from '@Data/contactData'
+
 function Contact() {
   const toggleTheme = useSelector(state => state.theme);
   const {currentTheme, isDark} = toggleTheme
   
+  const renderSocialMedias = contactData.map((item, index) => (
+    <Link
+      to={item.link}
+      key={index}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`nameArea-Contacts-Link`}
+    >
+      <CustomImage
+        src={`icon/SocialMedia/${item.icon}/${item.icon}.png`}
+        alt={`Social Media`}
+        styles={`socialMedia-img`}
+        img2={`icon/SocialMedia/${item.icon}/${item.icon}@2x.png`}
+        img3={`icon/SocialMedia/${item.icon}/${item.icon}@3x.png`}
+      />
+    </Link>
+  ))
+
   return (
-    <div className={`sectionArea contact ${isDark?`isDark`:''}`}>
+    <div className={`sectionArea contact ${currentTheme}-bg-fourth`}>
 
       {/* info */}
       <div className='contact-container'>
@@ -29,12 +50,20 @@ function Contact() {
               img2={`logo/logo@2x.png`}
               img3={`logo/logo@3x.png`}
             />
-            <span className={`${currentTheme}-color-second`}>FU TING (FRED) LI</span>
+            <h4 className={`${currentTheme}-color-second`}>FU TING (FRED) LI</h4>
           </div>
+          <p className={`positionTitle ${currentTheme}-color`}>Software Engineer, Front end & App Developer.</p>
+
+          {/* contact */}
+          <div className='nameArea-Contacts'>
+            {renderSocialMedias}
+          </div>
+
+          <p className={`contactMe ${currentTheme}-color`}>If you are interested in my work experience, please get in touch with me</p>
         </div>
       </div>
       
-      <div className='copyRightContainer'>
+      <div className={`copyRightContainer ${isDark? null: `isLight`}`}>
         <p className={`${currentTheme}-color`}>Copyright © 2023 Fred LI | All Rights Reserved</p>
       </div>
     </div>

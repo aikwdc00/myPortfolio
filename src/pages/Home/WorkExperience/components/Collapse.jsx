@@ -33,7 +33,7 @@ export const Path = props => (
   );
 
 function Collapse(props) {
-  const { data ,variants, contentVariants,skillsVariants,isDark ,currentTheme, } = props
+  const { data, variants, contentVariants,skillsVariants,isDark ,currentTheme, } = props
 
   // 设置初始状态，true 为显示 "-"，false 为显示 "+"
   const [collapse,setCollapse] = useState(0);

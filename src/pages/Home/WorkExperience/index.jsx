@@ -15,7 +15,7 @@ import { workSkills, workExperiences } from "@Data/workExperiences";
 
 const variants = {
   onscreen: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.2, delayChildren: 0.5 },
   },
   offscreen: {
     transition: { 

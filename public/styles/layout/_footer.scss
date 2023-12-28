@@ -17,11 +17,14 @@
 
     &-detail{
       @include whSize(50%,auto);
-      @include flexCenter(center,center);
+      @include flexCenter(center,flex-start);
+      @include paddingVertical(0rem,7rem);
       flex-direction: column;
 
       @include respond($bp-medium){
         @include whSize(100%,auto);
+        @include paddingVertical(0rem,0rem);
+        @include flexCenter(center,center);
       }
 
       & h3.sectionTitle{
@@ -29,22 +32,51 @@
 
         @include respond($bp-medium){
           @include whSize(100%,auto);
-          @include marginVertical(0rem,2rem);
           text-align: center;
         }
       }
 
       & .nameWrap{
-        align-self: flex-start;
         @include flexCenter(center,center);
+        @include paddingVertical(2rem,2rem);
 
         @include respond($bp-medium){
           align-self: center;
         }
 
-        & span{
+        & h4{
           font-size: 2.4rem;
           @include marginHorizontal(1.5rem,0.5rem);
+        }
+      }
+
+      & .positionTitle{
+        font-size: 1.6rem;
+        line-height: 3rem;
+        letter-spacing: 4px;
+      }
+
+      & .nameArea-Contacts{
+        @include paddingVertical(2rem,2rem);
+
+        &-Link{
+          @include marginHorizontal(0rem,1.5rem);
+
+        }
+      }
+
+      & .contactMe{
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 3rem;
+        @include whSize(80%,auto);
+
+        @include respond($bp-medium){
+          @include marginVertical(0rem,2rem);
+        }
+
+        @include  respond($bp-small){
+          @include whSize(100%,auto);
         }
       }
     }
@@ -55,9 +87,13 @@
     @include whSize(100%,auto);
     @include paddingVertical(5rem,0rem);
     @include flexCenter(center,center);
-    border-top-width: 1;
+    border-top-width: 0.05rem;
     border-top-style: solid;
-    border-top-color: $color-white;
+    border-top-color: #D1C1D5;
+
+    &.isLight{
+      border-top-color:#979797;
+    }
 
     & p{
       font-size: 1.8rem;
