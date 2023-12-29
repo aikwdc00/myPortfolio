@@ -1,7 +1,8 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState,} from 'react'
 import { NavLink, useNavigate,useLocation } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { motion, useScroll, useMotionValueEvent} from "framer-motion"
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 // components
 import DesktopNav from './desktop'
@@ -65,14 +66,29 @@ function NavIndex(props) {
   }, [pathname, hash]); 
 
   const handleDownload = () => {
-    // 创建一个虚拟链接
-    const link = document.createElement('a');
-    // 设置链接的属性，包括文件名和下载链接
-    link.href = '/public/doc/Fu_Ting_Li_Resume.pdf'; // 替换为你的文件路径
-    link.download = 'Fu_Ting_Li_Resume.pdf'; // 替换为你的文件名
-    // 模拟点击链接进行下载
-    link.click();
-  };
+
+    fetch(`${DATABASEURL}/myportfolio.json`)
+    .then(res=>res.json())
+    .then(data=>{
+      const storage = getStorage();
+      const gsReference = ref(storage, data.document);
+
+      getDownloadURL(gsReference)
+      .then((url) => {
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Fu_Ting_Li_Resume.pdf'; // The file name you want to use
+        link.click();
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.error(error);
+      });
+
+    })
+    .catch(err=>console.log(err))
+
+  }
 
   return (
     <>

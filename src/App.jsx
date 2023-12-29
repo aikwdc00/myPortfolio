@@ -21,19 +21,25 @@ function App() {
   useEffect(() => {
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    // const firebaseConfig = {
-    //   apiKey: FIREBASE_API_KEY,
-    //   authDomain: AUTH_DOMAIN,
-    //   projectId: PROJECTID,
-    //   storageBucket: STORAGEBUCKET,
-    //   messagingSenderId: MESSAGINGSENDERID,
-    //   appId: APPID,
-    //   measurementId: MEASUREMENTID
-    // };
 
-    // // Initialize Firebase
-    // const app = initializeApp(firebaseConfig);
-    // const analytics = getAnalytics(app);
+    async function firebaseConfig() {
+      const firebaseConfig = {
+        apiKey: FIREBASE_API_KEY,
+        authDomain: AUTH_DOMAIN,
+        databaseURL: DATABASEURL,
+        projectId: PROJECTID,
+        storageBucket: STORAGEBUCKET,
+        messagingSenderId: MESSAGINGSENDERID,
+        appId: APPID,
+        measurementId: MEASUREMENTID
+      };
+
+      // // Initialize Firebase
+      const app = await initializeApp(firebaseConfig);
+      const analytics = await getAnalytics(app);
+    }
+    
+    firebaseConfig()
   }, [])
   
   return (
