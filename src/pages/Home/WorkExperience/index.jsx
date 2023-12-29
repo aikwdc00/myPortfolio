@@ -74,18 +74,6 @@ const pathVariants = {
   }, 
 };
 
-export const Path = props => (
-    <motion.path
-      fill="transparent"
-      strokeWidth="3"
-      stroke={`#7300FE`}
-      strokeLinecap="round"
-      variants={pathVariants}
-      animate={props.isMinus ? 'closed' : 'open'}
-      {...props}
-    />
-  );
-
 function WorkExperience() {
   const toggleTheme = useSelector((state) => state.theme);
   const { currentTheme, isDark } = toggleTheme;
