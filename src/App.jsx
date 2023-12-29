@@ -1,21 +1,41 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // redux
 import { Provider} from "react-redux";
 import store from "@Reducer/index";
 
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-
+// components
 import Root from './RootRouter.jsx'
 
-// css
-// import './App.css'
+// styles
 import '@Public/styles/main.scss'
 
-function App() {
-  const [count, setCount] = useState(0)
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+function App() {
+
+  useEffect(() => {
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    // const firebaseConfig = {
+    //   apiKey: FIREBASE_API_KEY,
+    //   authDomain: AUTH_DOMAIN,
+    //   projectId: PROJECTID,
+    //   storageBucket: STORAGEBUCKET,
+    //   messagingSenderId: MESSAGINGSENDERID,
+    //   appId: APPID,
+    //   measurementId: MEASUREMENTID
+    // };
+
+    // // Initialize Firebase
+    // const app = initializeApp(firebaseConfig);
+    // const analytics = getAnalytics(app);
+  }, [])
+  
   return (
     <Provider store={store}>
       <Root />

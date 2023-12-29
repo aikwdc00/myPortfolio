@@ -5,7 +5,7 @@ import { useSelector, } from "react-redux";
 
 // components
 import SvgBg from './components/SvgBg'
-import MyName from '@components/MyName'
+import MyName from '@components/myName'
 import CustomImage from '@components/CustomImage'
 import CustomButton from '@components/CustomButton'
 
