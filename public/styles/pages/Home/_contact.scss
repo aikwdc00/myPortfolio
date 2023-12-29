@@ -44,16 +44,31 @@
           align-self: center;
         }
 
+        & .nav-logo-img{
+          @include respond($bp-small){
+            @include whSize(4rem,4rem);
+          }
+        }
+
         & h4{
           font-size: 2.4rem;
           @include marginHorizontal(1.5rem,0.5rem);
+
+          @include respond($bp-small){
+            font-size: 2rem;
+          }
         }
       }
 
       & .positionTitle{
         font-size: 1.6rem;
         line-height: 3rem;
-        letter-spacing: 4px;
+        letter-spacing: 0.4rem;
+
+        @include  respond($bp-small){
+          font-size: 1.4rem;
+          letter-spacing: 0.3rem;
+        }
       }
 
       & .nameArea-Contacts{
@@ -61,7 +76,12 @@
 
         &-Link{
           @include marginHorizontal(0rem,1.5rem);
-
+          
+          & .socialMedia-img{
+            @include respond($bp-small){
+              @include whSize(3.5rem,3.5rem);
+            }
+          }
         }
       }
 
@@ -77,6 +97,7 @@
 
         @include  respond($bp-small){
           @include whSize(100%,auto);
+          font-size: 1.4rem;
         }
       }
     }
@@ -98,6 +119,10 @@
     & p{
       font-size: 1.8rem;
       font-weight: 400;
+
+      @include  respond($bp-small){
+        font-size: 1.2rem;
+      }
     }
   }
 }

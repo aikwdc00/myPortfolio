@@ -53,7 +53,7 @@ function Contact() {
               />
               <h4 className={`${currentTheme}-color-second`}>FU TING (FRED) LI</h4>
             </div>
-            <p className={`positionTitle ${currentTheme}-color`}>Software Engineer, Front end & App Developer.</p>
+            <p className={`positionTitle ${currentTheme}-color`}>Software Engineer, Front-end & App Developer.</p>
 
             {/* contact */}
             <div className='nameArea-Contacts'>

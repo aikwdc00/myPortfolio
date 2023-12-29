@@ -6,7 +6,6 @@
   bottom: 10rem;
   right: 5rem;
   z-index: 1;
-  // background-color: $color-purple;
   background: var(--Button-color-01, linear-gradient(180deg, $color-purple 0%, $color-purple-second 100%));
   color: $color-white;
   border-radius: 50%;
@@ -26,9 +25,13 @@
   }
 
   @include respond($bp-small){
-    @include whSize(4rem,4rem);
+    @include whSize(5rem,5rem);
+    @include paddingVertical(2rem,2rem);
+    @include paddingHorizontal(2rem,2rem);
+
     font-size: 1.4rem;
     right: 2rem;
+    bottom: 3.5rem;
   }
 
   & .TopBtn{

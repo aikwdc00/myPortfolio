@@ -177,7 +177,12 @@
           background:transparent;
           position: fixed;
           right:5rem;
-          top: 3rem
+          top: 3rem;
+
+          @include respond($bp-small){
+            top: 2rem;
+            right: 2rem;
+          }
         }
       }
 

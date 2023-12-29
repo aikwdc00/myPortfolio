@@ -44,6 +44,7 @@ body {
 
     @include respond($bp-small){
       @include marginVertical(1rem,2rem);
+      font-size: 2rem;
     }
   }
 }
