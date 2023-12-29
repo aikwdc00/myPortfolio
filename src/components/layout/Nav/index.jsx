@@ -75,10 +75,13 @@ function NavIndex(props) {
 
       getDownloadURL(gsReference)
       .then((url) => {
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'Fu_Ting_Li_Resume.pdf'; // The file name you want to use
-        link.click();
+        // const link = document.createElement('a');
+        // link.href = url;
+        // link.download = 'Fu_Ting_Li_Resume.pdf'; // The file name you want to use
+        // link.click();
+
+        // window.location.href = url;
+        window.open(url, '_blank');
       })
       .catch((error) => {
         // Handle any errors
