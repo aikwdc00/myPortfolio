@@ -6,29 +6,38 @@ import {toggleLanguageHandler,getLanguageLocalStorage} from "@Reducer/language/l
 
 function LangButton() {
   const toggleTheme = useSelector(state => state.theme);
-  const toggleLanguage = useSelector(state => state.language);
+  const {currentLanguage, isEN} = useSelector((state) => state.language);
   const dispatch = useDispatch();
 
   // language
   useEffect(() => {
     const data = getLanguageLocalStorage()
-    dispatch(toggleLanguageHandler(data))
+    if(data){
+      toggleLangHandler(data)
+    }else{
+      toggleSwitch()
+    }
   },[])
 
   const toggleSwitch = useCallback(() => {
     const data = {
-      currentLanguage: toggleLanguage?.isEN ? 'EN' : 'ZH',
-      isEN: !toggleLanguage.isEN
+      currentLanguage: isEN ? 'ZH' : 'EN',
+      isEN: !isEN
     }
+  
+    toggleLangHandler(data)
+  }, [currentLanguage]);
+
+  const toggleLangHandler = useCallback((data) => {
     dispatch(toggleLanguageHandler(data));
-  }, [toggleLanguage]);
+  }, [toggleLanguageHandler]);
 
   return (
     <div
       className={`langBtn`}
       onClick={toggleSwitch}
     >
-      <p className={`${toggleTheme?.currentTheme}-color`}>{toggleLanguage?.isEN ? 'ZH':`EN`}</p>
+      <p className={`${toggleTheme?.currentTheme}-color`}>{isEN ? 'ZH':`EN`}</p>
     </div>
   );
 }

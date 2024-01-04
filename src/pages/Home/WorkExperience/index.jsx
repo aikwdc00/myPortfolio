@@ -75,8 +75,8 @@ const pathVariants = {
 };
 
 function WorkExperience() {
-  const toggleTheme = useSelector((state) => state.theme);
-  const { currentTheme, isDark } = toggleTheme;
+  const { currentTheme, isDark } = useSelector((state) => state.theme);
+  const {currentLanguage, isEN} = useSelector((state) => state.language);
 
   const { targetRef } = useScrollTo();
 
@@ -101,7 +101,7 @@ function WorkExperience() {
           className={`${currentTheme}-color-second sectionTitle`}
           ref={targetRef}
         >
-          // WORK EXPERTISE.
+          // {isEN? "WORK EXPERTISE.":"工作技能"}
         </h3>
         <motion.div
           className="WeContainer-description"

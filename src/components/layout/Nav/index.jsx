@@ -11,31 +11,36 @@ import MobileNav from './mobile'
 const Navs = [
   {
     id: 'Home',
-    name: 'Home',
+    'EN-name': 'Home',
+    'ZH-name': '首頁',
     path: '/',
     class: 'nav-link',
   },
   {
     id: 'About',
-    name: 'About',
+    'EN-name': 'About',
+    'ZH-name': '關於我',
     path: '/#about',
     class: 'nav-link',
   },
   {
     id: 'Work Expertise',
-    name: 'Work Expertise',
+    'EN-name': 'Work Expertise',
+    'ZH-name': '工作經驗',
     path: '/#work-expertise',
     class: 'nav-link',
   },
   {
     id: 'Projects',
-    name: 'Projects',
+    'EN-name': 'Projects',
+    'ZH-name': '專案',
     path: '/#projects',
     class: 'nav-link',
   },
   {
     id: 'Contact',
-    name: 'Contact',
+    'EN-name': 'Contact',
+    'ZH-name': '聯絡我',
     path: '/#contact',
     class: 'nav-link',
   },
@@ -75,12 +80,6 @@ function NavIndex(props) {
 
       getDownloadURL(gsReference)
       .then((url) => {
-        // const link = document.createElement('a');
-        // link.href = url;
-        // link.download = 'Fu_Ting_Li_Resume.pdf'; // The file name you want to use
-        // link.click();
-
-        // window.location.href = url;
         window.open(url, '_blank');
       })
       .catch((error) => {

@@ -8,10 +8,11 @@ import CustomImage from '@components/CustomImage';
 
 // data
 import {contactData} from '@Data/contactData'
+import { workTitle, myName} from "@Data/workExperiences";
 
 function Contact() {
-  const toggleTheme = useSelector(state => state.theme);
-  const {currentTheme, isDark} = toggleTheme
+  const {currentTheme, isDark} = useSelector(state => state.theme);
+  const {currentLanguage, isEN} = useSelector(state => state.language);
   
   const renderSocialMedias = contactData.map((item, index) => (
     <Link
@@ -38,7 +39,7 @@ function Contact() {
         {/* info */}
         <div className='contact-container'>
           <div className='contact-container-detail'>
-            <h3 id='contact' className={`sectionTitle ${currentTheme}-color-second`}>// CONTACT</h3>
+            <h3 id='contact' className={`sectionTitle ${currentTheme}-color-second`}>// {isEN ?`CONTACT`:`聯繫我`}</h3>
           </div>
 
           {/* detail */}
@@ -51,21 +52,28 @@ function Contact() {
                 img2={`logo/${currentTheme}/logo@2x.png`}
                 img3={`logo/${currentTheme}/logo@3x.png`}
               />
-              <h4 className={`${currentTheme}-color-second`}>FU TING (FRED) LI</h4>
+              {/* my name */}
+              <h4 className={`${currentTheme}-color-second`}>{myName[`${currentLanguage}-title`]}</h4>
             </div>
-            <p className={`positionTitle ${currentTheme}-color`}>Software Engineer, Front-end & App Developer.</p>
+            <p className={`positionTitle ${currentTheme}-color`}>{workTitle[`${currentLanguage}-title`]}</p>
 
             {/* contact */}
             <div className='nameArea-Contacts'>
               {renderSocialMedias}
             </div>
 
-            <p className={`contactMe ${currentTheme}-color`}>If you are interested in my work experience, please get in touch with me</p>
+            <p className={`contactMe ${currentTheme}-color`}>
+              {
+                isEN 
+                ?`If you are interested in my work experience, please get in touch with me`
+                :`如果您對我的工作經驗感興趣，請與我聯繫`
+              }
+            </p>
           </div>
         </div>
         
         <div className={`copyRightContainer ${isDark? null: `isLight`}`}>
-          <p className={`${currentTheme}-color`}>Copyright © 2023 Fred LI | All Rights Reserved</p>
+          <p className={`${currentTheme}-color`}>Copyright © 2023 FU TING (Fred) LI | All Rights Reserved</p>
         </div>
 
 

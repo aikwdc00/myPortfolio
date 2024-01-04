@@ -35,6 +35,8 @@ export const Path = (props) => (
 );
 
 function Collapse(props) {
+  const {currentLanguage, isEN} = useSelector((state) => state.language);
+
   const {
     data,
     variants,
@@ -66,10 +68,10 @@ function Collapse(props) {
               className="WeContainer-experience-collapse-head"
               onClick={() => togglePath(index)}
             >
-              <h4 className={`dark-color`}>{item.title}</h4>
+              <h4 className={`dark-color`}>{item[`${currentLanguage}-title`]}</h4>
 
               <div className="WeContainer-experience-collapse-head-toggleBtn">
-                <h4 className={`dark-color`}>{item.duration}</h4>
+                <h4 className={`dark-color`}>{item[`${currentLanguage}-duration`]}</h4>
                 {/* toggle icon */}
                 <div className="WeContainer-experience-collapse-head-toggleBtn-icon">
                   <svg width="25" height="25" viewBox="0 0 25 25">
@@ -109,7 +111,7 @@ function Collapse(props) {
                           img3={`icon/location/location.png`}
                         />
                         <p className={`${currentTheme}-color`}>
-                          {item.location}
+                          {item[`${currentLanguage}-location`]}
                         </p>
                       </div>
                       <div className="locationWrap">
@@ -133,7 +135,7 @@ function Collapse(props) {
                       className={`${currentTheme}-color description`}
                       contentVariants={contentVariants}
                     >
-                      {item.description}
+                      {item[`${currentLanguage}-description`]}
                     </motion.p>
 
                     <AnimatePresence mode="wait">

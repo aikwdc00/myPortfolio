@@ -41,9 +41,7 @@ function MobileNav(props) {
   const containerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const { height } = useDimensions(containerRef);
-  const toggleTheme = useSelector(state => state.theme);
-  
-  const { currentTheme,isDark, } = toggleTheme;
+  const { currentTheme,isDark, } = useSelector(state => state.theme);
 
   const toggleNavHandler = (val) => {
     setIsOpen((prevState) => (prevState = val))
@@ -67,11 +65,11 @@ function MobileNav(props) {
       {/* logo */}
       <Link to="/" className="nav-logo">
         <CustomImage 
-          src={`logo/logo.png`}
+          src={`logo/${currentTheme}/logo.png`}
           alt={`Logo`}
           styles={`nav-logo-img`}
-          img2={`logo/logo@2x.png`}
-          img3={`logo/logo@3x.png`}
+          img2={`logo/${currentTheme}/logo@2x.png`}
+          img3={`logo/${currentTheme}/logo@3x.png`}
         />
       </Link>
 

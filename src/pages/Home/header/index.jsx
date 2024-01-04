@@ -13,11 +13,12 @@ import CustomButton from '@components/CustomButton'
 import {KeyboardDoubleArrowDown} from '@mui/icons-material';
 // data
 import { contactData } from "@Data/contactData";
+import { workTitle } from "@Data/workExperiences";
 
 function Header() {
   const navigate = useNavigate()
-  const toggleTheme = useSelector(state => state.theme);
-  const { currentTheme,isDark, } = toggleTheme;
+  const { currentTheme,isDark, } = useSelector(state => state.theme);
+  const {currentLanguage, isEN} = useSelector(state => state.language);
 
   const renderSocialMedias = contactData.map((item, index) => (
     <Link
@@ -48,7 +49,7 @@ function Header() {
       <dir className={`nameArea`}>
         <MyName />
         <p className={`nameArea-description ${currentTheme}-color`}>
-          Software Engineer, Front-end & App Developer.
+          {workTitle[`${currentLanguage}-title`]}
         </p>
 
         <div className="nameArea-Contacts">

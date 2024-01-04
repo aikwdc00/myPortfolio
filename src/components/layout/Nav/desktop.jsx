@@ -9,8 +9,8 @@ import RightSideComponent from "./components/RightSideComponent";
 
 function DesktopNav(props) {
   const {navs,onDownload, navBg} = props
-  const toggleTheme = useSelector(state => state.theme);
-  const {currentTheme} = toggleTheme
+  const {currentTheme} = useSelector(state => state.theme);
+  const {currentLanguage, isEN} = useSelector(state => state.language);
 
   const renderNavs = navs.map((nav, index) => (
     <NavLink
@@ -24,7 +24,7 @@ function DesktopNav(props) {
           : `${nav.class} ${currentTheme}-color`
       }
     >
-      {`<${nav.name}>`}
+      {`<${nav[`${currentLanguage}-name`]}>`}
     </NavLink>
   ));
 

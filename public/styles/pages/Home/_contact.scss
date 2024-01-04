@@ -89,6 +89,7 @@
         font-size: 2rem;
         font-weight: 500;
         line-height: 3rem;
+        
         @include whSize(80%,auto);
 
         @include respond($bp-medium){
@@ -98,6 +99,7 @@
         @include  respond($bp-small){
           @include whSize(100%,auto);
           font-size: 1.4rem;
+          text-align: center;
         }
       }
     }

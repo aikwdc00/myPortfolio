@@ -18,13 +18,13 @@ function ThemeButton() {
 
   // theme
   useEffect(() => {
-    const theme = getThemeLocalStorage()
-    dispatch(toggleThemeHandler(theme))
+    const data = getThemeLocalStorage()
+    if(data){
+      toggleModeHandler(data)
+    }else{
+      toggleSwitch()
+    }
   },[])
-
-  // useEffect(() => {
-  //   console.log('toggleTheme',toggleTheme)
-  // }, [toggleTheme]);
 
   const toggleSwitch = useCallback(() => {
     const data = {
@@ -32,8 +32,13 @@ function ThemeButton() {
       nextTheme: toggleTheme?.isDark ? 'dark' : 'light',
       isDark: !toggleTheme.isDark
     }
-    dispatch(toggleThemeHandler(data));
+
+    toggleModeHandler(data)
   }, [toggleTheme]);
+
+  const toggleModeHandler = useCallback((data) => {
+    dispatch(toggleThemeHandler(data));
+  }, [toggleThemeHandler]);
 
   return (
     <div

@@ -6,10 +6,11 @@ import { useSelector } from "react-redux";
 const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
 
 export const MenuItem = ({ item,index,variants,toggleNav }) => {
-  const toggleTheme = useSelector(state => state.theme);
+  const { currentTheme,isDark, } = useSelector(state => state.theme);
+  const {currentLanguage, isEN} = useSelector(state => state.language);
+
   const style = { borderBottom: `2px solid ${colors[index]}` };
 
-  const { currentTheme,isDark, } = toggleTheme;
   return (
     <motion.li
       variants={variants}
@@ -26,7 +27,7 @@ export const MenuItem = ({ item,index,variants,toggleNav }) => {
         }
         onClick={() => toggleNav(false)}
       >
-        {`< ${item.name} >`}
+        {`< ${item[`${currentLanguage}-name`]} >`}
       </NavLink>
     </motion.li>
   );

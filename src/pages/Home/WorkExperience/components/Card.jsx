@@ -7,6 +7,7 @@ import CustomImage from "@components/CustomImage";
 
 function Card(props) {
   const {item, isDark, variants, contentVariants, currentTheme, } = props
+  const {currentLanguage, isEN} = useSelector((state) => state.language);
   return (
     <motion.div
       className={`WeContainer-cards-card ${isDark ? "" : "light-bg-linear"}`}
@@ -16,9 +17,9 @@ function Card(props) {
         <h3
           className={`dark-color ${isDark ? "" : ""}`}
         >
-          {item.title}
+          {item[`${currentLanguage}-title`]}
         </h3>
-        <p className={`dark-color`}>{item.description}</p>
+        <p className={`dark-color`}>{item[`${currentLanguage}-description`]}</p>
       </div>
 
       <motion.div
