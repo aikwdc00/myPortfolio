@@ -9,7 +9,7 @@ import { Navigation } from "./components/Navigation";
 
 // components
 import CustomImage from "@components/CustomImage";
-import ThemeButton from "./components/ThemeButton";
+import RightSideComponent from "./components/RightSideComponent";
 
 const sidebar = {
   open: (height = window.innerHeight) => ({
@@ -78,7 +78,7 @@ function MobileNav(props) {
 
       {/* nav */}
       <div className="mobileNav-rightWrap">
-        <ThemeButton />
+        <RightSideComponent />
 
         <MenuToggle 
           isOpen={isOpen}

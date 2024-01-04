@@ -45,11 +45,11 @@ function Contact() {
           <div className='contact-container-detail'>
             <div className='nameWrap'>
               <CustomImage 
-                src={`logo/logo.png`}
+                src={`logo/${currentTheme}/logo.png`}
                 alt={`Logo`}
                 styles={`nav-logo-img`}
-                img2={`logo/logo@2x.png`}
-                img3={`logo/logo@3x.png`}
+                img2={`logo/${currentTheme}/logo@2x.png`}
+                img3={`logo/${currentTheme}/logo@3x.png`}
               />
               <h4 className={`${currentTheme}-color-second`}>FU TING (FRED) LI</h4>
             </div>

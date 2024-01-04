@@ -65,6 +65,16 @@
       }
     }
 
+    // langBtn
+    .langBtn{
+      @include marginHorizontal(0rem, 1.5rem);
+      cursor: pointer;
+      
+      & p{
+        font-size: 1.8rem;
+      }
+    }
+
   // dark mode
   .switch {
     @include whSize(6rem, 3rem);

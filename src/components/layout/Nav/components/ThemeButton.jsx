@@ -12,7 +12,7 @@ const spring = {
   damping: 30
 };
 
-export default function App() {
+function ThemeButton() {
   const toggleTheme = useSelector(state => state.theme);
   const dispatch = useDispatch();
 
@@ -64,4 +64,6 @@ export default function App() {
     </div>
   );
 }
+
+export default React.memo(ThemeButton);
 

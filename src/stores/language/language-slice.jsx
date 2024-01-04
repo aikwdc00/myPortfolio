@@ -2,10 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const languageSlice = createSlice({
   name: 'language',
-  initialState: { currentLanguage: 'EN'},
+  initialState: { currentLanguage: 'EN', isEN: true,},
   reducers: {
     toggleLanguage(state,action) {
-      state.currentLanguage = action.payload?.language;
+      return {
+        ...state,
+        currentLanguage: action.payload.currentLanguage,
+        isEN: action.payload.isEN,
+      }
+      
     },
   },
 });

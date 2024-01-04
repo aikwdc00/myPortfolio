@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 // components
 import CustomImage from '@components/CustomImage';
 import CustomButton from "@components/CustomButton";
-import ThemeButton from './components/ThemeButton';
+import RightSideComponent from "./components/RightSideComponent";
 
 function DesktopNav(props) {
   const {navs,onDownload, navBg} = props
@@ -32,11 +32,11 @@ function DesktopNav(props) {
     <div className={`navContainer desktopNav`}>
       <Link to="/" className="nav-logo">
         <CustomImage 
-          src={`logo/logo.png`}
+          src={`logo/${currentTheme}/logo.png`}
           alt={`Logo`}
           styles={`nav-logo-img`}
-          img2={`logo/logo@2x.png`}
-          img3={`logo/logo@3x.png`}
+          img2={`logo/${currentTheme}/logo@2x.png`}
+          img3={`logo/${currentTheme}/logo@3x.png`}
         />
       </Link>
 
@@ -44,8 +44,7 @@ function DesktopNav(props) {
       <div>{renderNavs}</div>
 
       <div className='nav-right'>
-        {/* theme button */}
-        <ThemeButton />
+        <RightSideComponent />
 
         {/* download resume */}
         <CustomButton 
