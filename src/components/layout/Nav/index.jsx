@@ -1,6 +1,6 @@
 import React,{useEffect, useState,} from 'react'
 import { NavLink, useNavigate,useLocation } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import { motion, useScroll, useMotionValueEvent} from "framer-motion"
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 

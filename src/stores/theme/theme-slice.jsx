@@ -9,7 +9,7 @@ const themeSlice = createSlice({
         ...state,
         currentTheme: action.payload?.theme?.currentTheme,
         nextTheme: action.payload?.theme?.nextTheme,
-        isDark: !state.isDark
+        isDark: action.payload?.theme?.isDark
       }
     },
   },
