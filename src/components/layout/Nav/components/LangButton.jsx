@@ -14,8 +14,6 @@ function LangButton() {
     const data = getLanguageLocalStorage()
     if(data){
       toggleLangHandler(data)
-    }else{
-      toggleSwitch()
     }
   },[])
 

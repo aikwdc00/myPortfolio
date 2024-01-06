@@ -21,8 +21,6 @@ function ThemeButton() {
     const data = getThemeLocalStorage()
     if(data){
       toggleModeHandler(data)
-    }else{
-      toggleSwitch()
     }
   },[])
 
