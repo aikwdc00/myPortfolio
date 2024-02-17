@@ -1,4 +1,4 @@
-import React,{Suspense,lazy} from "react";
+import React, { Suspense, lazy } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import RootLayout from "@components/layout";
@@ -6,23 +6,29 @@ import RootLayout from "@components/layout";
 
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 const Home = lazy(() => import('./pages/Home'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 function RootRouter() {
   const router = createBrowserRouter([
     {
+      path: "/",
+      element: <RootLayout />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          index: true,
           path: "/",
-          element: <RootLayout />,
-          errorElement: <ErrorPage />,
-          children: [
-            {
-              index: true,
-              path: "/",
-              element: <Home />,
-            },
-          ]
+          element: <Home />,
+        },
+        {
+          index: true,
+          path: "/projects/:id",
+          element: <ProjectDetail />,
+        },
+      ]
     },
   ])
-  
+
   return (
     <Suspense >
       <RouterProvider router={router} />
