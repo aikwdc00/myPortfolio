@@ -82,25 +82,33 @@ body {
   background-color:$color-dark;
 }
 
-// .light-bg-second {
-//   background-color:$color-white-second;
-// }
-
+// second
+.light-bg-second{
+  background-color: $color-white-second;
+}
 .dark-bg-second {
   background-color:$color-dark-second;
 }
 
+// third
 .dark-bg-third {
   background-color:$color-gray-second;
 }
 
-
+// fourth
 .light-bg-fourth{
   background-color: $color-white-second;
 }
-
 .dark-bg-fourth {
   background-color:$color-dark-third;
+}
+
+// fifth
+.light-bg-fifth{
+  background-color: $color-white-second;
+}
+.dark-bg-fifth {
+  background-color:$color-dark-forth;
 }
 
 

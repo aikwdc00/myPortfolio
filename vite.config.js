@@ -13,7 +13,7 @@ export default defineConfig({
       '@assets': '/src/assets',
       '@Reducer': '/src/stores',
       '@customHook': '/src/hooks',
-      '@hook': '/src/hooks',
+      '@hooks': '/src/hooks',
       '@Public': '/public',
       '@Data': '/src/data',
       // 添加其他别名

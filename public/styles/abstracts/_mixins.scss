@@ -50,10 +50,10 @@ ORDER: Base + typography > general layout + grid > page layout > components
   // }
 }
 
-@mixin flexCenter($x:center,$y:center){
-    display: flex;
-    justify-content: $x;
-    align-items: $y;
+@mixin flexCenter($x: center, $y: center) {
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
 }
 
 @mixin button-style($text-color, $bg-color) {
@@ -62,12 +62,13 @@ ORDER: Base + typography > general layout + grid > page layout > components
   padding: 1rem 2rem;
   border: 0.1rem solid $bg-color;
   border-radius: 0.5rem;
+
   &:hover {
     background-color: darken($bg-color, 10%);
   }
 }
 
-@mixin card-style($bg-color:$color-white, $border-color:#ccc) {
+@mixin card-style($bg-color: $color-white, $border-color: #ccc) {
   background-color: $bg-color;
   border: 0.1rem solid $border-color;
   border-radius: 0.4rem;
@@ -75,36 +76,36 @@ ORDER: Base + typography > general layout + grid > page layout > components
   @include boxShadow(0px, 0.2rem, 0.4rem, 0px, rgba(0, 0, 0, 0.1));
 }
 
-@mixin boxShadow($x,$y,$xe,$ye,$color){
+@mixin boxShadow($x, $y, $xe, $ye, $color) {
   // box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   box-shadow: $x $y $xe $ye $color;
 }
 
-@mixin whSize($w:100%,$h:'auto'){
-  width:$w;
-  height:$h;
+@mixin whSize($w: 100%, $h: auto) {
+  width: $w;
+  height: $h;
 }
 
-@mixin border-style($size, $style, $color){
+@mixin border-style($size, $style, $color) {
   border: $size $style $color;
 }
 
-@mixin paddingHorizontal($left:2rem, $right:2rem) {
+@mixin paddingHorizontal($left: 2rem, $right: 2rem) {
   padding-left: $left;
   padding-right: $right;
 }
 
-@mixin paddingVertical($top:3rem, $bottom:3rem) {
+@mixin paddingVertical($top: 3rem, $bottom: 3rem) {
   padding-top: $top;
   padding-bottom: $bottom;
 }
 
-@mixin marginHorizontal($left:2rem, $right:2rem) {
+@mixin marginHorizontal($left: 2rem, $right: 2rem) {
   margin-left: $left;
   margin-right: $right;
 }
 
-@mixin marginVertical($top:3rem, $bottom:3rem) {
+@mixin marginVertical($top: 3rem, $bottom: 3rem) {
   margin-top: $top;
   margin-bottom: $bottom;
 }

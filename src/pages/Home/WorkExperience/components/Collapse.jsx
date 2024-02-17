@@ -35,7 +35,7 @@ export const Path = (props) => (
 );
 
 function Collapse(props) {
-  const {currentLanguage, isEN} = useSelector((state) => state.language);
+  const { currentLanguage, isEN } = useSelector((state) => state.language);
 
   const {
     data,
@@ -75,7 +75,7 @@ function Collapse(props) {
                 {/* toggle icon */}
                 <div className="WeContainer-experience-collapse-head-toggleBtn-icon">
                   <svg width="25" height="25" viewBox="0 0 25 25">
-                    <Path isMinus={collapse === index} variants={pathVariants}/>
+                    <Path isMinus={collapse === index} variants={pathVariants} />
                   </svg>
                 </div>
               </div>
@@ -86,9 +86,8 @@ function Collapse(props) {
               {collapse === index && (
                 <motion.div
                   key={index}
-                  className={`WeContainer-experience-collapse-body ${
-                    isDark ? `isDark` : `light-bg-fourth`
-                  }`}
+                  className={`WeContainer-experience-collapse-body ${isDark ? `isDark` : `light-bg-fourth`
+                    }`}
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
@@ -149,9 +148,8 @@ function Collapse(props) {
                         {item.relational.map((rel, ind) => (
                           <motion.p
                             key={ind}
-                            className={`dark-color ${
-                              isDark ? `isDark` : `light-bg-linear`
-                            }`}
+                            className={`dark-color ${isDark ? `isDark` : `light-bg-linear`
+                              }`}
                             variants={skillsVariants}
                           >
                             {rel}

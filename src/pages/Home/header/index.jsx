@@ -1,6 +1,6 @@
 import React from 'react'
-import {Link,useNavigate} from 'react-router-dom'
-import { motion,AnimatePresence } from "framer-motion";
+import { Link, useNavigate } from 'react-router-dom'
+import { motion, AnimatePresence } from "framer-motion";
 import { useSelector, } from "react-redux";
 
 // components
@@ -10,15 +10,15 @@ import CustomImage from '@components/CustomImage'
 import CustomButton from '@components/CustomButton'
 
 // MUI
-import {KeyboardDoubleArrowDown} from '@mui/icons-material';
+import { KeyboardDoubleArrowDown } from '@mui/icons-material';
 // data
 import { contactData } from "@Data/contactData";
 import { workTitle } from "@Data/workExperiences";
 
 function Header() {
   const navigate = useNavigate()
-  const { currentTheme,isDark, } = useSelector(state => state.theme);
-  const {currentLanguage, isEN} = useSelector(state => state.language);
+  const { currentTheme, isDark, } = useSelector(state => state.theme);
+  const { currentLanguage, isEN } = useSelector(state => state.language);
 
   const renderSocialMedias = contactData.map((item, index) => (
     <Link
@@ -38,12 +38,12 @@ function Header() {
     </Link>
   ))
 
-  const navigateHandler = ()=>{
+  const navigateHandler = () => {
     navigate('/#about')
   }
 
   return (
-    <div className="sectionArea headerContainer">
+    <div className={`sectionArea headerContainer ${currentTheme}-bg-second`}>
       <SvgBg />
 
       <dir className={`nameArea`}>
@@ -59,12 +59,12 @@ function Header() {
 
       <CustomButton
         animate={{ y: [0, 10, 0], transition: { duration: 2, repeat: Infinity } }}
-        className={`scrollDown ${isDark?`isDark`:``}`}
+        className={`scrollDown ${isDark ? `isDark` : ``}`}
         onClick={navigateHandler}
       >
-        <KeyboardDoubleArrowDown 
+        <KeyboardDoubleArrowDown
           className={`scrollDown-icon 
-          ${currentTheme}-color-second`} 
+          ${currentTheme}-color-second`}
         />
       </CustomButton>
     </div>

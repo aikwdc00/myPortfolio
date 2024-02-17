@@ -3,7 +3,6 @@
   @include marginHorizontal(auto,auto);
   position: relative;
   flex-direction: column;
-  max-width: $maxWight;
 
   & .svg-bg{
     align-self: flex-end;

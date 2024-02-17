@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 // redux
-import { Provider} from "react-redux";
+import { Provider } from "react-redux";
 import store from "@Reducer/index";
 
 // components
@@ -15,6 +15,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+
+import '../src/utilities/service.jsx'
 
 function App() {
 
@@ -38,10 +40,10 @@ function App() {
       const app = await initializeApp(firebaseConfig);
       const analytics = await getAnalytics(app);
     }
-    
+
     firebaseConfig()
   }, [])
-  
+
   return (
     <Provider store={store}>
       <Root />
