@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import { NavLink,Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { NavLink, Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 // components
@@ -8,9 +8,11 @@ import CustomButton from "@components/CustomButton";
 import RightSideComponent from "./components/RightSideComponent";
 
 function DesktopNav(props) {
-  const {navs,onDownload, navBg} = props
-  const {currentTheme} = useSelector(state => state.theme);
-  const {currentLanguage, isEN} = useSelector(state => state.language);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { navs, onDownload, navBg } = props
+  const { currentTheme } = useSelector(state => state.theme);
+  const { currentLanguage, isEN } = useSelector(state => state.language);
 
   const renderNavs = navs.map((nav, index) => (
     <NavLink
@@ -20,25 +22,35 @@ function DesktopNav(props) {
         isPending
           ? "pending"
           : isActive
-          ? `${nav.class} ${nav.class}-active ${currentTheme}-color`
-          : `${nav.class} ${currentTheme}-color`
+            ? `${nav.class} ${nav.class}-active ${currentTheme}-color`
+            : `${nav.class} ${currentTheme}-color`
       }
     >
       {`<${nav[`${currentLanguage}-name`]}>`}
     </NavLink>
   ));
 
+  const directToHome = () => {
+    const { pathname, hash } = location;
+    if (pathname === "/") {
+      navigate("/");
+      window.scrollTo(0, 0);
+    } else {
+      navigate("/");
+    }
+  }
+
   return (
     <div className={`navContainer desktopNav`}>
-      <Link to="/" className="nav-logo">
-        <CustomImage 
+      <div className="nav-logo" onClick={directToHome}>
+        <CustomImage
           src={`logo/${currentTheme}/logo.png`}
           alt={`Logo`}
           styles={`nav-logo-img`}
           img2={`logo/${currentTheme}/logo@2x.png`}
           img3={`logo/${currentTheme}/logo@3x.png`}
         />
-      </Link>
+      </div>
 
 
       <div>{renderNavs}</div>
@@ -47,7 +59,7 @@ function DesktopNav(props) {
         <RightSideComponent />
 
         {/* download resume */}
-        <CustomButton 
+        <CustomButton
           className='Resume-btn'
           onClick={onDownload}
         >

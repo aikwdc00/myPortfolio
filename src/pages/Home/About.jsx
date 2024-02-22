@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 
 // data
 import { EN_description, ZH_description } from "@Data/aboutData";
+// components
+import CustomImage from "@components/CustomImage";
 
 const variants = {
   onscreen: {
@@ -22,6 +24,23 @@ const contentVariants = {
   },
   onscreen: {
     y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 2,
+      // spring: 400,
+    }
+  }
+};
+
+const photoVariants = {
+  offscreen: {
+    x: 200,
+    opacity: 0,
+  },
+  onscreen: {
+    x: 0,
     opacity: 1,
     transition: {
       type: "spring",
@@ -83,7 +102,19 @@ function About() {
           </motion.div>
 
           {/* head portrait */}
-          <div className="aboutContainer-description-content"></div>
+          <motion.div
+            variants={photoVariants}
+            viewport={{ once: true, }}
+            className="aboutContainer-description-content"
+          >
+            <CustomImage
+              src={`self/me.png`}
+              alt={`Logo`}
+              styles={`content-img`}
+              img2={`self/me.png`}
+              img3={`self/me.png`}
+            />
+          </motion.div>
         </motion.div>
       </div>
     </div>

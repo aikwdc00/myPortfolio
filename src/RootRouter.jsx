@@ -22,7 +22,7 @@ function RootRouter() {
         },
         {
           index: true,
-          path: "/projects/:id",
+          path: "/projects/:projectId",
           element: <ProjectDetail />,
         },
       ]

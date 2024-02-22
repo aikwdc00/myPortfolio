@@ -1,61 +1,87 @@
-.aboutContainer{
+.aboutContainer {
   flex-direction: column;
 
-  &-description{
-    @include whSize(100%,auto);
-    @include flexCenter(center,center);
+  &-description {
+    @include whSize(100%, auto);
+    @include flexCenter(center, center);
     flex-direction: row;
 
-    @include respond($bp-medium){
+    @include respond($bp-medium) {
       flex-direction: column;
     }
 
-    &-content{
-      @include whSize(40%,auto);
+    &-content {
+      @include whSize(40%, auto);
 
-      @include respond($bp-medium){
-         @include whSize(100%,auto);
+      @include respond($bp-medium) {
+        @include whSize(100%, auto);
       }
 
-      &:first-child{
-        @include whSize(60%,auto);
+      &:first-child {
+        @include whSize(60%, auto);
+        @include paddingVertical(5%, 2rem);
         align-self: flex-start;
 
-        @include respond($bp-medium){
-          @include whSize(100%,auto);
-          order:2;
+        @include respond($bp-medium) {
+          @include whSize(100%, auto);
+          order: 2;
         }
 
-        & h1{
+        & h1 {
           font-size: 3.2rem;
 
-          @include respond($bp-medium){
+          @include respond($bp-medium) {
             font-size: 2rem;
           }
         }
 
-        & p{
+        & p {
           font-size: 2rem;
           line-height: 3rem;
-          @include marginVertical(2.5rem,0rem);
+          @include marginVertical(2.5rem, 0rem);
 
-          @include respond($bp-medium){
+          @include respond($bp-medium) {
             font-size: 1.6rem;
           }
         }
       }
 
-      &:last-child{
-        @include whSize(40%,auto);
+      &:last-child {
+        @include whSize(40%, auto);
         align-self: flex-end;
-        @include marginHorizontal(5rem,0rem);
+        // @include marginHorizontal(5rem, 0rem);
 
-        @include respond($bp-medium){
-          @include whSize(100%,auto);
-          order:1;
+        @include respond($bp-medium) {
+          @include whSize(100%, auto);
+          order: 1;
+
+          @include flexCenter(center, center);
+          @include paddingVertical(0rem, 2rem);
+        }
+
+        & .content-img {
+          @include whSize(80%, auto);
+          max-width: 50.3rem;
+          object-fit: contain;
+          object-position: center;
+          display: block;
+          margin: 0 auto;
+
+          @include respond($bp-large) {
+            @include whSize(90%, auto);
+          }
+
+          @include respond($bp-medium) {
+            @include whSize(70%, auto);
+            object-fit: cover;
+          }
+
+          @include respond($bp-small) {
+            @include whSize(70%, auto);
+          }
         }
       }
-      
+
     }
   }
 }

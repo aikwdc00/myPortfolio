@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useScrollTo from "@customHook/useScrollTo";
 
-import {motion, AnimatePresence} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 // components
 import CustomImage from "@components/CustomImage";
@@ -15,13 +15,15 @@ import { workSkills, workExperiences } from "@Data/workExperiences";
 
 const variants = {
   onscreen: {
+    // staggerChildren 的作用是，让子元素一个接一个的进入
+    // delayChildren 的作用是，让子元素延迟进入
     transition: { staggerChildren: 0.2, delayChildren: 0.5 },
   },
   offscreen: {
-    transition: { 
-      staggerChildren: 0.05, 
-      staggerDirection: -1, 
-      delay: 1 , 
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+      delay: 1,
       duration: 1,
       stiffness: 20,
       damping: 40,
@@ -62,32 +64,20 @@ const skillsVariants = {
   }
 };
 
-// defined 2 symbols, one for +, one for -
-const pathVariants = {
-  open: { // "+" symbol
-    d: "M2 12h20M12 2l0 20",
-    transition:{duration: 0.3 },
-   },
-  closed: { // "-" symbol
-    d: "M2 12h20",
-    transition:{duration: 0.3 },
-  }, 
-};
-
 function WorkExperience() {
   const { currentTheme, isDark } = useSelector((state) => state.theme);
-  const {currentLanguage, isEN} = useSelector((state) => state.language);
+  const { currentLanguage, isEN } = useSelector((state) => state.language);
 
   const { targetRef } = useScrollTo();
 
   // 设置初始状态，true 为显示 "-"，false 为显示 "+"
-  const [collapse,setCollapse] = useState(0);
+  const [collapse, setCollapse] = useState(0);
 
   // 切换状态的函数
   const togglePath = (val) => {
-    if(collapse === val) {
+    if (collapse === val) {
       setCollapse(-1)
-    }else{
+    } else {
       setCollapse(val)
     }
   };
@@ -101,7 +91,7 @@ function WorkExperience() {
           className={`${currentTheme}-color-second sectionTitle`}
           ref={targetRef}
         >
-          // {isEN? "WORK EXPERTISE.":"工作技能"}
+          // {isEN ? "WORK EXPERTISE." : "工作技能"}
         </h3>
         <motion.div
           className="WeContainer-description"
@@ -123,9 +113,9 @@ function WorkExperience() {
 
           {/* work experiences */}
           <div className="WeContainer-experience">
-            <Collapse 
-              data={workExperiences} 
-              variants={variants} 
+            <Collapse
+              data={workExperiences}
+              variants={variants}
               contentVariants={contentVariants}
               skillsVariants={skillsVariants}
               currentTheme={currentTheme}

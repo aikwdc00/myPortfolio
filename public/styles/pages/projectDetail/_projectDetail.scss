@@ -1,0 +1,349 @@
+.projectDetail {
+  width: 100%;
+  @include paddingHorizontal(0rem, 0rem);
+  @include paddingVertical(0rem, 0rem);
+  flex-direction: column;
+
+  & hr {
+    @include whSize(100%, 0.05rem);
+    @include marginVertical(4vh, 3vh);
+  }
+
+  // header
+  &-headerContainer {
+    @include flexCenter(center, center);
+    @include whSize(100%, auto);
+    position: relative;
+
+    @include respond($bp-medium) {
+      @include whSize(100%, 50vh);
+    }
+
+    @include respond($bp-small) {
+      @include whSize(100%, 60vh);
+    }
+
+    &-subWrap {
+      @include whSize(50%, 100%);
+      @include paddingHorizontal(10rem, 0rem);
+      @include paddingVertical(8rem, 8rem);
+      @include flexCenter(center, center);
+      flex-direction: column;
+      align-items: flex-start;
+      overflow: hidden;
+
+      @include respond($bp-medium) {
+        @include whSize(100%, 100%);
+        @include paddingVertical(0, 0);
+      }
+
+      &:first-child {
+        @include paddingHorizontal(5%, 5%);
+
+        @include respond($bp-medium) {
+          @include paddingHorizontal(5rem, 5rem);
+          background-color: rgba(0, 0, 0, .5);
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1;
+
+          & h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          p {
+            color: $color-white !important;
+          }
+        }
+
+        @include respond($bp-small) {
+          @include paddingHorizontal(2rem, 2rem);
+
+        }
+
+        & .subTitle {
+          font-size: 1.8rem;
+          font-weight: bold;
+          margin-bottom: 2rem;
+
+          @include respond($bp-small) {
+            font-size: 1.6rem;
+          }
+        }
+
+        & .title {
+          font-size: 3.2rem;
+          font-weight: bold;
+          margin-bottom: 3rem;
+
+          @include respond($bp-small) {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+          }
+        }
+
+        & .description {
+          font-size: 1.6rem;
+          line-height: 3rem;
+
+          @include respond($bp-small) {
+            font-size: 1.4rem;
+            line-height: 2.2rem;
+          }
+        }
+
+        & .technologiesTitle {
+          font-size: 1.8rem;
+          font-weight: bold;
+
+          @include respond($bp-small) {
+            font-size: 1.6rem;
+          }
+        }
+
+        & .technologiesContainer {
+          @include flexCenter(flex-start, center);
+          flex-direction: row;
+          @include whSize(100%, auto);
+          flex-wrap: wrap;
+          @include marginVertical(2rem, 2rem);
+
+          @include respond($bp-small) {
+            @include marginVertical(1rem, 1rem);
+          }
+
+          & .technology {
+            @include marginHorizontal(0rem, 1rem);
+            font-size: 1.8rem;
+
+            @include respond($bp-small) {
+              font-size: 1.2rem;
+            }
+          }
+        }
+
+        & .openProjectLink {
+          font-size: 2rem;
+          font-weight: bold;
+          text-decoration: none;
+
+          @include respond($bp-small) {
+
+            @include respond($bp-small) {
+              font-size: 1.6rem;
+            }
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+
+        &.app {
+          @include paddingHorizontal(0, 8rem);
+
+          @include respond($bp-medium) {
+            @include paddingHorizontal(2rem, 2rem);
+          }
+        }
+      }
+
+      & .banner {
+        @include whSize(auto, auto);
+        max-width: 100%;
+        object-fit: contain;
+        align-self: flex-end;
+        display: block;
+
+        @include respond($bp-medium) {
+          align-self: center;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+    }
+  }
+
+  // web section
+  & .mainSection {
+    @include paddingVertical(8%, 8%);
+    @include paddingHorizontal(6%, 6%);
+    @include whSize(100%, auto);
+
+    @include respond($bp-small) {
+      @include paddingVertical(8%, 25%);
+    }
+
+    &-title {
+      @include paddingVertical(0rem, 3rem);
+
+      @include respond($bp-small) {
+        font-size: 1.6rem;
+      }
+    }
+
+    & .mainImg {
+      @include whSize(100%, auto);
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    & .secondContainer {
+      @include flexCenter(center, center);
+      flex-direction: row;
+
+      @include respond($bp-small) {
+        flex-direction: column;
+      }
+
+      & div:first-child {
+        @include whSize(60%, auto);
+
+        @include respond($bp-small) {
+          @include whSize(100%, auto);
+        }
+      }
+
+      & div:nth-of-type(2) {
+        @include whSize(40%, 100%);
+        @include paddingHorizontal(5%, 5%);
+
+        @include respond($bp-small) {
+          @include whSize(100%, auto);
+          @include paddingHorizontal(1%, 1%);
+          @include paddingVertical(5%, 5%);
+        }
+
+        & .secondSectionSubWrap {
+          @include whSize(100%, 100%);
+
+          & .secondSection-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+
+            @include respond($bp-small) {
+              font-size: 1.6rem;
+            }
+          }
+
+          & .description {
+            font-size: 1.8rem;
+            line-height: 3rem;
+
+            @include respond($bp-small) {
+              font-size: 1.4rem;
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+
+
+  // mobile section
+  .mobileWrap {
+    @include paddingHorizontal(6%, 6%);
+    @include paddingVertical(8%, 8%);
+    @include flexCenter(center, center);
+    flex-direction: row;
+
+    @include respond($bp-medium) {
+      flex-direction: column;
+
+      &:nth-of-type(3) {
+        @include paddingVertical(8%, 15%);
+      }
+    }
+
+    @include respond($bp-small) {
+      &:nth-of-type(3) {
+        @include paddingVertical(8%, 25%);
+      }
+    }
+
+    &-subWrap {
+
+      &:first-child {
+        width: 55%;
+
+        @include respond($bp-medium) {
+          width: 100%;
+        }
+
+        & .mobileWrapImg {
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+
+      &:nth-child(2) {
+        width: 45%;
+        @include paddingHorizontal(5%, 0%);
+
+        @include respond($bp-medium) {
+          width: 100%;
+          @include paddingHorizontal(0%, 0%);
+          @include paddingVertical(5%, 0%);
+        }
+
+        & .description {
+          font-size: 1.8rem;
+          line-height: 3rem;
+        }
+
+        & .secondSectionSubWrap {
+          @include paddingVertical(0%, 5%);
+        }
+      }
+
+
+      &.order {
+        order: -1;
+        @include paddingHorizontal(0%, 5%);
+
+        @include respond($bp-medium) {
+          order: 0;
+        }
+      }
+
+      &-title {
+        font-size: 2.2rem;
+        font-weight: bold;
+        @include marginVertical(0rem, 2rem);
+      }
+
+    }
+  }
+
+
+  // switch Projects btn
+  .switchProjects {
+    position: fixed;
+    left: 3%;
+    bottom: 5%;
+
+    & .switchBtn {
+      @include paddingHorizontal(1.5rem, 1.5rem);
+      @include paddingVertical(1.5rem, 1.5rem);
+      @include marginHorizontal(0rem, 1rem);
+
+      border: 0;
+      border-radius: 1rem;
+
+      & .btnText {
+        font-size: 2rem;
+        color: $color-white;
+
+        @include respond($bp-small) {
+          font-size: 1.4rem;
+        }
+      }
+    }
+
+  }
+}

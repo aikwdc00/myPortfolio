@@ -8,19 +8,19 @@
 }
 
 html {
-/*
+  /*
   This defines what 1rem is
   1 rem = 10px; 10px/16px = 62.5%
-*/ 
+*/
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
 .paddingHorizontal {
-  @include paddingHorizontal(5rem,5rem);
+  @include paddingHorizontal(5rem, 5rem);
 
-  @include respond($bp-small){
-    @include paddingHorizontal(2rem,2rem);
+  @include respond($bp-small) {
+    @include paddingHorizontal(2rem, 2rem);
   }
 }
 
@@ -28,39 +28,41 @@ body {
   box-sizing: border-box;
 }
 
-.sectionArea{
-  @include flexCenter(center,center);
-  @include paddingHorizontal(8%,8%);
-  @include paddingVertical(7%,7%);
+.sectionArea {
+  @include flexCenter(center, center);
+  @include paddingHorizontal(8%, 8%);
+  @include paddingVertical(7%, 7%);
 
-  @include respond($bp-small){
-    @include paddingHorizontal(2rem,2rem);
+  @include respond($bp-small) {
+    @include paddingHorizontal(2rem, 2rem);
   }
 
-  & h3.sectionTitle{
+  & h3.sectionTitle {
     align-self: flex-start;
-    @include marginVertical(0rem,5.4rem);
+    @include marginVertical(0rem, 5.4rem);
     font-size: 2.4rem;
 
-    @include respond($bp-small){
-      @include marginVertical(1rem,2rem);
+    @include respond($bp-small) {
+      @include marginVertical(1rem, 2rem);
       font-size: 2rem;
     }
   }
 }
 
-.section-container{
-  @include marginHorizontal(auto,auto);
+.section-container {
+  @include marginHorizontal(auto, auto);
   max-width: $maxWight;
 }
 
 // color for text
 .light-color {
-  color:$color-dark-second;
+  color: $color-dark-second;
 }
-
 .dark-color {
-  color:$color-white;
+  color: $color-white;
+}
+.light-purple-color {
+  color: $color-purple;
 }
 
 .light-color-second {
@@ -70,52 +72,59 @@ body {
 }
 
 .dark-color-second {
-  color:$color-white;
+  color: $color-white;
 }
 
 // color for background
 .light-bg {
-  background-color:$color-white;
+  background-color: $color-white;
 }
 
 .dark-bg {
-  background-color:$color-dark;
+  background-color: $color-dark;
 }
 
 // second
-.light-bg-second{
+.light-bg-second {
   background-color: $color-white-second;
 }
+
 .dark-bg-second {
-  background-color:$color-dark-second;
+  background-color: $color-dark-second;
 }
 
 // third
 .dark-bg-third {
-  background-color:$color-gray-second;
+  background-color: $color-gray-second;
 }
 
 // fourth
-.light-bg-fourth{
+.light-bg-fourth {
   background-color: $color-white-second;
 }
+
 .dark-bg-fourth {
-  background-color:$color-dark-third;
+  background-color: $color-dark-third;
 }
 
 // fifth
-.light-bg-fifth{
+.light-bg-fifth {
   background-color: $color-white-second;
 }
+
 .dark-bg-fifth {
-  background-color:$color-dark-forth;
+  background-color: $color-dark-forth;
 }
 
 
-.light-bg-linear{
+.light-bg-linear {
   background: linear-gradient(to bottom, $color-purple, $color-purple-second);
 }
 
-.dark-bg-linear{
-  background-color:$color-dark-third;
+.dark-bg-linear {
+  background-color: $color-dark-third;
+}
+
+.dark-gray-bg {
+  background-color: $color-gray-third;
 }
