@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@components/*": ["src/components/*"],
+            "@assets/*": ["src/assets/*"],
+            "@Reducer/*": ["src/stores/*"],
+            "@customHook/*": ["src/hooks/*"],
+            "@hooks/*": ["src/hooks/*"],
+            "@Public/*": ["public/*"],
+            "@Data/*": ["src/data/*"]
+        },
+        "jsx": "react-jsx"
+    },
+    "include": ["src"]
+}

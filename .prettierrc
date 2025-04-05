@@ -7,5 +7,6 @@
     "jsxSingleQuote": true,
     "arrowParens": "always",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.requireConfig": true
+    "prettier.requireConfig": true,
+    "endOfLine": "auto"
 }

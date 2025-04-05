@@ -11,16 +11,17 @@ module.exports = {
     ignorePatterns: ['dist', '.eslintrc.cjs'],
     parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
     settings: { react: { version: '18.2' } },
-    plugins: ['react-refresh'],
+    plugins: ['react-refresh', 'simple-import-sort'],
     rules: {
-        'react-refresh/only-export-components': [
-            'warn',
-            { allowConstantExport: true },
-        ],
-        'import/no-unresolved': 'error', // 檢查未解析的模組
-        'import/named': 'error', // 檢查命名導入是否正確
-        'import/default': 'error', // 檢查默認導入是否正確
-        'import/namespace': 'error', // 檢查命名空間導入是否正確
-        'import/no-duplicates': 'error', // 防止重複導入
+        'no-undef': 'error',
+        'no-unused-vars': 'warn',
+        'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+        'import/no-unresolved': 'error',
+        'import/named': 'error',
+        'import/default': 'error',
+        'import/namespace': 'error',
+        'import/no-duplicates': 'error',
+        'simple-import-sort/imports': 'warn',
+        'simple-import-sort/exports': 'warn',
     },
-}
+};
